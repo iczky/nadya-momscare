@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MomsCare - Skrining</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F8BBD9', 'primary-dark': '#EC4899', 'primary-light': '#FCE7F3',
+            secondary: '#E9D5FF', accent: '#FED7AA', background: '#FFFBF7', surface: '#FFFFFF',
+            'surface-alt': '#FFF5F8', 'text-primary': '#831843', 'text-secondary': '#7A6B5E',
+            border: '#F9D0E3', success: '#A7F3D0', warning: '#FDE68A', danger: '#FCA5A5',
+          },
+          fontFamily: { heading: ['Nunito', 'sans-serif'], body: ['Poppins', 'sans-serif'], },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-text-primary pb-24">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
+    <div class="flex items-center justify-between max-w-6xl mx-auto">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-text-primary">MomsCare</span>
+      </a>
+      <a href="profil.html" class="w-9 h-9 bg-primary-light rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <h1 class="font-heading text-2xl font-bold text-text-primary mb-2">Skrining Kesehatan</h1>
+    <p class="text-text-secondary text-sm mb-6">Lakukan skrining untuk mendeteksi risiko kesehatan sejak dini</p>
+
+    <div class="bg-white rounded-xl p-5 border border-border/50 mb-6">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 bg-warning/30 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <div>
+          <p class="text-sm text-text-secondary">Skrining ini bersifat panduan awal. Hasil skrining bukan pengganti konsultasi dengan tenaga kesehatan profesional.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <a href="skrining-nifas.html" class="block bg-white rounded-xl p-5 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-text-primary mb-1">Skrining Masa Nifas</h3>
+            <p class="text-sm text-text-secondary">Cek kondisi pemulihan pascapersalinan, termasuk perdarahan, demam, dan involusi rahim.</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </a>
+
+      <a href="skrining-menyusui.html" class="block bg-white rounded-xl p-5 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-secondary/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-text-primary mb-1">Skrining Menyusui</h3>
+            <p class="text-sm text-text-secondary">Cek kesiapan dan deteksi masalah menyusui seperti puting lecet dan produksi ASI.</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </a>
+
+      <a href="skrining-kb.html" class="block bg-white rounded-xl p-5 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 bg-success/30 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-text-primary mb-1">Skrining KB Pasca Persalinan</h3>
+            <p class="text-sm text-text-secondary">Cek metode kontrasepsi yang cocok berdasarkan kondisi kesehatan Anda.</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Riwayat -->
+    <div class="mt-8">
+      <h2 class="font-heading text-lg font-bold text-text-primary mb-4">Riwayat Skrining</h2>
+      <a href="hasil-skrining.html" class="block bg-white rounded-xl p-4 border border-border/50 flex items-center gap-4 transition-all duration-200 hover:shadow-md cursor-pointer">
+        <div class="w-10 h-10 bg-warning/30 rounded-lg flex items-center justify-center flex-shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-medium text-text-primary">Lihat Riwayat Hasil Skrining</h3>
+          <p class="text-xs text-text-secondary">Hasil skrining sebelumnya tersimpan di sini</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
+    <div class="flex items-center justify-around">
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs text-text-secondary">Beranda</span></a>
+      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-text-secondary">Edukasi</span></a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-primary-dark">Skrining</span></a>
+      <a href="konsultasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="text-xs text-text-secondary">Konsultasi</span></a>
+    </div>
+  </nav>
+</body>
+</html>

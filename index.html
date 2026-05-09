@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MomsCare - Beranda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F8BBD9',
+            'primary-dark': '#EC4899',
+            'primary-light': '#FCE7F3',
+            secondary: '#E9D5FF',
+            accent: '#FED7AA',
+            background: '#FFFBF7',
+            surface: '#FFFFFF',
+            'surface-alt': '#FFF5F8',
+            'text-primary': '#831843',
+            'text-secondary': '#7A6B5E',
+            border: '#F9D0E3',
+            success: '#A7F3D0',
+            warning: '#FDE68A',
+            danger: '#FCA5A5',
+          },
+          fontFamily: {
+            heading: ['Nunito', 'sans-serif'],
+            body: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes softPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    @keyframes gentleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    .animate-fade-in { animation: fadeIn 400ms ease-out forwards; }
+    .animate-slide-up { animation: slideUp 500ms ease-out forwards; }
+    .animate-soft-pulse { animation: softPulse 2s ease-in-out infinite; }
+    .animate-gentle-float { animation: gentleFloat 3s ease-in-out infinite; }
+
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Hide scrollbar but allow scrolling */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-text-primary pb-24">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
+    <div class="flex items-center justify-between max-w-6xl mx-auto">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-text-primary">MomsCare</span>
+      </a>
+      <a href="profil.html" class="w-9 h-9 bg-primary-light rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Hero Section -->
+    <section class="relative mb-8">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl -z-10"></div>
+      <div class="bg-gradient-to-br from-primary-light to-surface-alt rounded-2xl p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-primary-dark rounded-full animate-soft-pulse"></span>
+          <span class="text-xs font-medium text-primary-dark">Selamat Datang</span>
+        </div>
+        <h1 class="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-2">
+          Hai, Ibu! <span class="text-primary-dark"></span>
+        </h1>
+        <p class="text-text-secondary text-sm md:text-base mb-4">
+          MomsCare siap menemani masa nifas Anda dengan konsultasi bidan dan edukasi kesehatan.
+        </p>
+        <a href="konsultasi.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-medium rounded-xl transition-all duration-200 hover:bg-primary-dark active:scale-[0.98] cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Konsultasi Sekarang
+        </a>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="mb-8">
+      <h2 class="font-heading text-lg font-bold text-text-primary mb-4">Aksi Cepat</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="skrining.html" class="bg-white rounded-xl p-4 border border-border/50 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer">
+          <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Skrining</span>
+        </a>
+        <a href="edukasi.html" class="bg-white rounded-xl p-4 border border-border/50 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer">
+          <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Edukasi</span>
+        </a>
+        <a href="konsultasi.html" class="bg-white rounded-xl p-4 border border-border/50 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Chat Bidan</span>
+        </a>
+        <a href="hasil-skrining.html" class="bg-white rounded-xl p-4 border border-border/50 flex flex-col items-center text-center transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer">
+          <div class="w-12 h-12 bg-warning/30 rounded-xl flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Riwayat</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Edukasi Categories -->
+    <section class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-heading text-lg font-bold text-text-primary">Materi Edukasi</h2>
+        <a href="edukasi.html" class="text-sm text-primary-dark font-medium">Lihat Semua</a>
+      </div>
+      <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2 -mx-4 px-4">
+        <a href="edukasi-nifas.html" class="flex-shrink-0 w-36 bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Masa Nifas</span>
+        </a>
+        <a href="edukasi-menyusui.html" class="flex-shrink-0 w-36 bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Menyusui</span>
+        </a>
+        <a href="edukasi-kb.html" class="flex-shrink-0 w-36 bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-10 h-10 bg-success/30 rounded-lg flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">KB Pasca</span>
+        </a>
+        <a href="edukasi-tanda-bahaya.html" class="flex-shrink-0 w-36 bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-10 h-10 bg-danger/30 rounded-lg flex items-center justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>
+            </svg>
+          </div>
+          <span class="text-sm font-medium text-text-primary">Tanda Bahaya</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Skrining Section -->
+    <section class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="font-heading text-lg font-bold text-text-primary">Skrining Kesehatan</h2>
+        <a href="skrining.html" class="text-sm text-primary-dark font-medium">Lihat Semua</a>
+      </div>
+      <div class="grid gap-3">
+        <a href="skrining-nifas.html" class="bg-white rounded-xl p-4 border border-border/50 flex items-center gap-4 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium text-text-primary">Skrining Masa Nifas</h3>
+            <p class="text-xs text-text-secondary">Cek kondisi pemulihan pascapersalinan</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+        <a href="skrining-menyusui.html" class="bg-white rounded-xl p-4 border border-border/50 flex items-center gap-4 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium text-text-primary">Skrining Menyusui</h3>
+            <p class="text-xs text-text-secondary">Cek kesiapan dan masalah menyusui</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+        <a href="skrining-kb.html" class="bg-white rounded-xl p-4 border border-border/50 flex items-center gap-4 transition-all duration-200 hover:shadow-md cursor-pointer">
+          <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-medium text-text-primary">Skrining KB Pasca Persalinan</h3>
+            <p class="text-xs text-text-secondary">Cek pilihan KB yang cocok untuk Anda</p>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Kontak Darurat -->
+    <section class="mb-8">
+      <div class="bg-danger/10 rounded-xl p-4 border border-danger/20">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 bg-danger/20 rounded-lg flex items-center justify-center flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-red-600 mb-1">Kontak Darurat</h3>
+            <p class="text-sm text-text-secondary mb-2">Jika mengalami tanda bahaya, hubungi segera:</p>
+            <p class="font-bold text-red-600">0812-3456-7890</p>
+            <p class="text-xs text-text-secondary mt-1">Tersedia 24 jam</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
+    <div class="flex items-center justify-around">
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span class="text-xs font-medium text-primary-dark">Beranda</span>
+      </a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+        </svg>
+        <span class="text-xs font-medium text-text-secondary">Edukasi</span>
+      </a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/>
+        </svg>
+        <span class="text-xs font-medium text-text-secondary">Skrining</span>
+      </a>
+      <a href="konsultasi.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="text-xs font-medium text-text-secondary">Konsultasi</span>
+      </a>
+      <a href="profil.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span class="text-xs font-medium text-text-secondary">Profil</span>
+      </a>
+    </div>
+  </nav>
+</body>
+</html>

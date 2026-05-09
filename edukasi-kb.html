@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MomsCare - KB Pasca Persalinan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F8BBD9', 'primary-dark': '#EC4899', 'primary-light': '#FCE7F3',
+            secondary: '#E9D5FF', accent: '#FED7AA', background: '#FFFBF7', surface: '#FFFFFF',
+            'surface-alt': '#FFF5F8', 'text-primary': '#831843', 'text-secondary': '#7A6B5E',
+            border: '#F9D0E3', success: '#A7F3D0', warning: '#FDE68A', danger: '#FCA5A5',
+          },
+          fontFamily: { heading: ['Nunito', 'sans-serif'], body: ['Poppins', 'sans-serif'], },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-text-primary pb-24">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
+    <div class="flex items-center justify-between max-w-6xl mx-auto">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-text-primary">MomsCare</span>
+      </a>
+      <a href="profil.html" class="w-9 h-9 bg-primary-light rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex items-center gap-2 mb-4">
+      <a href="edukasi.html" class="text-text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </a>
+      <span class="text-text-secondary text-sm">Edukasi</span>
+    </div>
+
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+      </div>
+      <h1 class="font-heading text-2xl font-bold text-text-primary">KB Pasca Persalinan</h1>
+    </div>
+
+    <!-- Intro -->
+    <section class="mb-8">
+      <div class="bg-white rounded-xl p-5 border border-border/50 text-sm text-text-secondary leading-relaxed">
+        <p>Kontrasepsi pasca persalinan penting untuk direncanakan sebelum hubungan seksual dilanjutkan. Pemilihan metode KB harus mempertimbangkan kondisi ibu, terutama jika sedang menyusui.</p>
+      </div>
+    </section>
+
+    <!-- IUD -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">IUD (Intrauterine Device)</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-3 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Cara Kerja</h3>
+          <p>IUD adalah alat kontrasepsi yang dimasukkan ke dalam rahim. Ada dua jenis: IUD hormonal (mengandung progestin) dan IUD tembaga (non-hormonal).</p>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Kelebihan</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Tahan lama (5-10 tahun)</li>
+            <li>Ringan sekali saat dilepas, langsung subur</li>
+            <li>Aman untuk ibu menyusui</li>
+            <li>Sangat efektif (99%)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Waktu Pemasangan</h3>
+          <p>Bisa dipasang segera setelah persalinan (dalam 48 jam) atau 4-6 minggu pasca persalinan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implant -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Implant</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-3 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Cara Kerja</h3>
+          <p>Implant adalah alat kontrasepsi kecil yang dimasukkan di bawah kulit lengan atas. Melepaskan hormon progestin secara bertahap.</p>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Kelebihan</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Tahan lama (3-5 tahun)</li>
+            <li>Tidak perlu ingat setiap hari</li>
+            <li>Dapat segera dipasang setelah persalinan</li>
+            <li>Fertilitas kembali cepat setelah dicabut</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Efek Samping</h3>
+          <p>Perubahan pola menstruasi, spotting, atau tidak haid. Beberapa wanita mengalami perubahan mood atau peningkatan berat badan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suntik KB -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Suntik KB</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-3 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Jenis</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>Suntik 1 Bulan:</strong> Kombinasi estrogen dan progestin</li>
+            <li><strong>Suntik 3 Bulan:</strong> Progestin saja, lebih aman untuk menyusui</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Jadwal</h3>
+          <p>Suntik 1 bulan setiap 30 hari, suntik 3 bulan setiap 90 hari. Sangat penting untuk tepat waktu.</p>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Efek Samping</h3>
+          <p>Gangguan haid (tidak teratur, spotting), kenaikan berat badan, perubahan mood, penurunan kepadatan tulang (jika使用 lama).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pil KB -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Pil KB</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-3 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Jenis</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li><strong>Pil Kombinasi:</strong> Estrogen + Progestin (tidak untuk menyusui eksklusif)</li>
+            <li><strong>Mini Pil:</strong> Progestin saja, aman untuk menyusui</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Keunggulan</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Dapat dihentikan kapan saja</li>
+            <li>Fertilitas cepat kembali</li>
+            <li>Meringankan kram dan perdarahan haid</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Tips Penggunaan</h3>
+          <p>Minum pil pada waktu yang sama setiap hari. Jika lupa, gunakan kondom sebagai backup selama 7 hari.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAL -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Metode MAL</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-3 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Apa itu MAL?</h3>
+          <p>Metode Amenorrhea Laktasi (MAL) atau menyusui sebagai kontrasepsi alami. Efektif jika memenuhi seluruh kriteria berikut:</p>
+          <ul class="list-disc list-inside space-y-1 mt-2">
+            <li>Ibu menyusui eksklusif</li>
+            <li>Bayi berusia di bawah 6 bulan</li>
+            <li>Belum mendapat haid sejak melahirkan</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-1">Efektivitas</h3>
+          <p>98% efektif jika memenuhi seluruh kriteria. Jika salah satu kriteria tidak terpenuhi, gunakan kontrasepsi cadangan.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
+    <div class="flex items-center justify-around">
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs text-text-secondary">Beranda</span></a>
+      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-primary-dark">Edukasi</span></a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-text-secondary">Skrining</span></a>
+      <a href="konsultasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="text-xs text-text-secondary">Konsultasi</span></a>
+    </div>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MomsCare - Menyusui</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F8BBD9', 'primary-dark': '#EC4899', 'primary-light': '#FCE7F3',
+            secondary: '#E9D5FF', accent: '#FED7AA', background: '#FFFBF7', surface: '#FFFFFF',
+            'surface-alt': '#FFF5F8', 'text-primary': '#831843', 'text-secondary': '#7A6B5E',
+            border: '#F9D0E3', success: '#A7F3D0', warning: '#FDE68A', danger: '#FCA5A5',
+          },
+          fontFamily: { heading: ['Nunito', 'sans-serif'], body: ['Poppins', 'sans-serif'], },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-text-primary pb-24">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
+    <div class="flex items-center justify-between max-w-6xl mx-auto">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <span class="font-heading font-bold text-lg text-text-primary">MomsCare</span>
+      </a>
+      <a href="profil.html" class="w-9 h-9 bg-primary-light rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <div class="flex items-center gap-2 mb-4">
+      <a href="edukasi.html" class="text-text-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </a>
+      <span class="text-text-secondary text-sm">Edukasi</span>
+    </div>
+
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+      </div>
+      <h1 class="font-heading text-2xl font-bold text-text-primary">Menyusui</h1>
+    </div>
+
+    <!-- Article 1 -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Teknik Menyusui yang Benar</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
+        <p>Teknik menyusui yang benar sangat penting untuk memastikan bayi mendapatkan ASI yang cukup dan mencegah masalah seperti puting lecet.</p>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Posisi Menyusui</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Cradle Hold:</strong> Bayi menghadap dada ibu, kepala di lekukan siku</li>
+            <li><strong>Football Hold:</strong> Bayi diposisikan di samping tubuh ibu, kaki menghadap belakang</li>
+            <li><strong>Side-Lying:</strong> Ibu dan bayi sama-sama berbaring menghadap satu sama lain</li>
+            <li><strong>Laid-back:</strong> Ibu berbaring santai dengan bayi di atas dada</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Pelekatan yang Benar</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Bayi membuka mulut lebar dengan areola (bagian gelap) masuk ke mulut</li>
+            <li>Dagu bayi menyentuh payudara</li>
+            <li>Bibir bayi melekuk ke luar (tidak masuk)</li>
+            <li>Tidak terasa sakit saat bayi menghisap</li>
+            <li>Bagian atas areola terlihat lebih banyak di atas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article 2 -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">ASI Eksklusif</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
+        <p>ASI eksklusif berarti memberikan hanya ASI saja tanpa air putih, makanan padat, atau formula selama 6 bulan pertama kehidupan bayi.</p>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Manfaat ASI Eksklusif</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Memberikan antibodi untuk melindungi bayi dari infeksi</li>
+            <li>Mendukung pertumbuhan dan perkembangan otak optimal</li>
+            <li>Melindungi bayi dari alergi dan penyakit kronis</li>
+            <li>Mempererat ikatan antara ibu dan bayi</li>
+            <li>Ekonomi dan praktis</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Tips Memulai ASI Eksklusif</h3>
+          <ul class="list-decimal list-inside space-y-2">
+            <li>Inisiasi Menyusu Dini (IMD) dalam 1 jam pertama setelah lahir</li>
+            <li>Susui bayi on-demand (saat bayi minta)</li>
+            <li>Pastikan bayi mengosongkan satu payudara sebelum pindah ke breasts lain</li>
+            <li>Jangan gunakan dot atau empeng sebelum menyusui lancar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article 3 -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Mengatasi Puting Lecet</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
+        <p>Puting lecet adalah masalah umum yang sering dialami ibu menyusui. Penyebab utamanya adalah pelekatan yang kurang tepat.</p>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Pencegahan</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Pastikan pelekatan bayi benar (dagu menyentuh payudara)</li>
+            <li>Ganti posisi menyusui agar tekanan tersebar merata</li>
+            <li>Jangan menarik putting dari mulut bayi secara paksa</li>
+            <li>Oleskan kolostrum atau ASI di putting setelah menyusui</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Penanganan</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Kompres dingin untuk meredakan nyeri</li>
+            <li>Oleskan ASI atau lotion lanolin khusus ibu menyusui</li>
+            <li>Biarkan putting terkena udara sebentar setelah menyusui</li>
+            <li>Jika sangat sakit, pompa ASI dan berikan dengan sendok sementara</li>
+            <li>Konsultasi dengan konselor laktasi jika tidak membaik</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article 4 -->
+    <section class="mb-8">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Memerah dan Menyimpan ASI</h2>
+      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Cara Memerah ASI</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Cuci tangan sebelum memerah</li>
+            <li>Pijat lembut payudara dengan gerakan melingkar</li>
+            <li>Letakkan ibu jari di atas dan jari lain di bawah areola</li>
+            <li>Tekan ke arah dinding dada, lalu remas lembut</li>
+            <li>Ulangi dengan posisi jari berbeda</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-medium text-text-primary mb-2">Penyimpanan ASI</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Suhu ruangan: 4-6 jam</li>
+            <li>Kulkas: 24-48 jam</li>
+            <li>Freezer: 3-6 bulan</li>
+            <li>Jangan bekukan ulang ASI yang sudah dicairkan</li>
+            <li>Panaskan dengan cara rendam air hangat, bukan microwave</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
+    <div class="flex items-center justify-around">
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs text-text-secondary">Beranda</span></a>
+      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-primary-dark">Edukasi</span></a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-text-secondary">Skrining</span></a>
+      <a href="konsultasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="text-xs text-text-secondary">Konsultasi</span></a>
+    </div>
+  </nav>
+</body>
+</html>
