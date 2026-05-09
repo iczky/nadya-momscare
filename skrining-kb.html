@@ -41,121 +41,185 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-3 mb-2">
       <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
       </div>
-      <h1 class="font-heading text-xl font-bold text-text-primary">Skrining KB Pasca Persalinan</h1>
+      <div>
+        <h1 class="font-heading text-xl font-bold text-text-primary">Skrining Kesiapan KB</h1>
+        <p class="text-xs text-text-secondary">10 pertanyaan</p>
+      </div>
     </div>
 
-    <form id="skriningForm" class="space-y-6">
+    <div class="bg-success/20 rounded-xl p-4 mb-6">
+      <p class="text-sm text-text-secondary">
+        <strong>Petunjuk:</strong> Jawab setiap pertanyaan dengan memilih "Ya" atau "Tidak". Hasil akan membantu merekomendasikan metode KB yang sesuai.
+      </p>
+    </div>
+
+    <form id="skriningForm" class="space-y-4">
       <!-- Question 1 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">1. Apakah Anda sedang menyusui eksklusif?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q1" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, hanya ASI</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">1. Apakah ibu sudah lebih dari 6 minggu pasca persalinan?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q1" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q1" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak, sudah campur</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q1" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 2 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">2. Berapa lama postpartum Anda saat ini?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Kurang dari 6 minggu</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">2. Apakah ibu sudah kembali menstruasi?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q2" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">6-42 hari (masih nifas)</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Lebih dari 42 hari</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q2" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 3 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">3. Apakah Anda ingin memiliki anak lagi dalam waktu dekat?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, dalam 1-2 tahun</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">3. Apakah ibu tidak menyusui secara eksklusif?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q3" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Belum tahu</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak, ingin jangka panjang</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q3" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 4 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">4. Apakah Anda punya riwayat masalah kesehatan tertentu?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak ada</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">4. Apakah frekuensi menyusui kurang dari 8 kali sehari?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Masalah jantung/darah</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Riwayat kanker</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q4" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
-      <button type="submit" class="w-full py-4 bg-primary text-white font-semibold rounded-xl transition-all duration-200 hover:bg-primary-dark active:scale-[0.98] cursor-pointer">
+      <!-- Question 5 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">5. Apakah ibu memiliki riwayat hipertensi?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q5" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q5" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">6. Apakah ibu memiliki riwayat perdarahan?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q6" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q6" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">7. Apakah ibu merokok?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q7" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q7" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">8. Apakah ibu ingin menunda kehamilan lebih dari 2 tahun?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q8" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q8" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">9. Apakah ibu bersedia menggunakan alat kontrasepsi jangka panjang?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q9" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q9" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">10. Apakah ibu takut terhadap penggunaan alat/implan/alat dalam rahim?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q10" value="1" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-success/20 transition-colors has-[:checked]:border-green-600 has-[:checked]:bg-success/20">
+            <input type="radio" name="q10" value="0" class="w-5 h-5 accent-green-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-success text-green-600 font-semibold rounded-xl transition-all duration-200 hover:bg-green-200 active:scale-[0.98] cursor-pointer">
         Lihat Rekomendasi
       </button>
     </form>
 
     <div id="resultSection" class="hidden space-y-4">
-      <div class="bg-white rounded-xl p-5 border border-success text-center">
-        <h3 class="font-heading text-xl font-bold text-green-600 mb-2">Metode KB yang Disarankan</h3>
-        <p class="text-text-secondary text-sm">Berdasarkan jawaban Anda, berikut adalah rekomendasi metode kontrasepsi:</p>
+      <div class="bg-white rounded-xl p-5 border border-border/50">
+        <h3 class="font-heading font-bold text-text-primary mb-3">Hasil Skrining Kesiapan KB</h3>
+        <p class="text-sm text-text-secondary mb-4">Berdasarkan jawaban Anda, berikut adalah rekomendasi metode kontrasepsi yang sesuai:</p>
       </div>
 
       <div id="recommendationCard" class="bg-white rounded-xl p-5 border border-border/50">
-        <h4 class="font-heading font-bold text-text-primary mb-3">Opsi 1: MAL (Menyusui sebagai KB)</h4>
-        <p class="text-sm text-text-secondary mb-4">Cocok untuk Anda yang menyusui eksklusif dan belum ingin KB hormonal. Efektif 98% jika memenuhi syarat.</p>
-        <div class="bg-primary-light/30 rounded-lg p-3 text-sm">
-          <p class="font-medium text-primary-dark">Syarat:</p>
-          <ul class="list-disc list-inside text-text-secondary mt-1 space-y-1">
-            <li>Menyusui eksklusif</li>
-            <li>Bayi di bawah 6 bulan</li>
-            <li>Belum dapat haid</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <h4 class="font-heading font-bold text-text-primary mb-3">Opsi 2: Mini Pil (Progestin Only)</h4>
-        <p class="text-sm text-text-secondary mb-4">Alternatif jika MAL tidak cocok. Aman untuk ibu menyusui dan dapat dihentikan kapan saja.</p>
-        <div class="bg-secondary/30 rounded-lg p-3 text-sm">
-          <p class="font-medium text-purple-600">Kelebihan:</p>
-          <ul class="list-disc list-inside text-text-secondary mt-1 space-y-1">
-            <li>Aman untuk menyusui</li>
-            <li>Fertilitas cepat kembali</li>
-            <li>Bisa digunakan segera</li>
-          </ul>
-        </div>
       </div>
 
       <div class="bg-warning/20 rounded-xl p-4 text-sm">
@@ -163,7 +227,7 @@
         <p class="text-text-secondary">Rekomendasi ini bersifat umum. Untuk pilihan KB yang tepat, konsultasikan dengan bidan atau dokter spesialis.</p>
       </div>
 
-      <a href="konsultasi.html" class="block w-full py-4 bg-primary text-white font-semibold rounded-xl text-center transition-all duration-200 hover:bg-primary-dark cursor-pointer">
+      <a href="konsultasi.html" class="block w-full py-4 bg-success text-green-600 font-semibold rounded-xl text-center transition-all duration-200 hover:bg-green-200 cursor-pointer">
         Konsultasi dengan Bidan
       </a>
     </div>
@@ -172,6 +236,69 @@
   <script>
     document.getElementById('skriningForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
+      let score = 0;
+      const answers = {};
+      for (let i = 1; i <= 10; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) {
+          answers[i] = parseInt(selected.value);
+        }
+      }
+
+      const recCard = document.getElementById('recommendationCard');
+
+      // Calculate recommendations based on answers
+      let malSuitable = answers[1] === 0 && answers[3] === 0 && answers[4] === 0;
+      let hormonalSuitable = answers[5] === 0 && answers[6] === 0 && answers[7] === 0;
+      let longTermSuitable = answers[8] === 1 && answers[9] === 1 && answers[10] === 0;
+
+      let recommendations = [];
+
+      if (malSuitable) {
+        recommendations.push({
+          title: "Metode MAL (Amenorrhea Laktasi)",
+          desc: "Cocok untuk ibu yang menyusui eksklusif. Metode alami tanpa alat.",
+          icon: "heart"
+        });
+      }
+
+      if (hormonalSuitable) {
+        recommendations.push({
+          title: "Pil KB / Suntik KB",
+          desc: "Pilihan hormonal yang aman jika tidak ada riwayat hipertensi atau perdarahan.",
+          icon: "pill"
+        });
+      }
+
+      if (longTermSuitable) {
+        recommendations.push({
+          title: "IUD / Implant",
+          desc: "Kontrasepsi jangka panjang yang efektif jika ingin menunda kehamilan >2 tahun.",
+          icon: "shield"
+        });
+      }
+
+      if (recommendations.length === 0) {
+        recCard.innerHTML = `
+          <h4 class="font-heading font-bold text-text-primary mb-3">Konsultasi Diperlukan</h4>
+          <p class="text-sm text-text-secondary mb-4">Berdasarkan kondisi Anda, diperlukan konsultasi langsung dengan bidan untuk menentukan metode KB yang paling tepat.</p>
+          <p class="text-sm text-text-secondary">Beberapa kondisi seperti riwayat hipertensi, perdarahan, atau preferensi metode memerlukan pertimbangan khusus.</p>
+        `;
+      } else {
+        let recHTML = '<h4 class="font-heading font-bold text-text-primary mb-3">Metode KB yang Disarankan</h4><div class="space-y-4">';
+        recommendations.forEach(rec => {
+          recHTML += `
+            <div class="bg-success/20 rounded-lg p-4">
+              <h5 class="font-medium text-green-700 mb-1">${rec.title}</h5>
+              <p class="text-sm text-text-secondary">${rec.desc}</p>
+            </div>
+          `;
+        });
+        recHTML += '</div>';
+        recCard.innerHTML = recHTML;
+      }
+
       document.getElementById('skriningForm').classList.add('hidden');
       document.getElementById('resultSection').classList.remove('hidden');
     });

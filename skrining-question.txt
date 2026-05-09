@@ -1,0 +1,54 @@
+LAMPIRAN: KUESIONER SKRINING IBU NIFAS BERBASIS WEBSITE TELEKONSELING
+
+A. Skrining Kondisi Nifas
+No	Pertanyaan	Ya (1)	Tidak (0)
+1	Apakah ibu mengalami demam (>38°C)?	☐	☐
+2	Apakah ibu merasa lemas berlebihan?	☐	☐
+3	Apakah ibu mengalami pusing atau sakit kepala berat?	☐	☐
+4	Apakah ibu mengalami perdarahan banyak (ganti pembalut < 1 jam)?	☐	☐
+5	Apakah darah nifas berbau tidak sedap?	☐	☐
+6	Apakah keluar gumpalan darah besar?	☐	☐
+7	Apakah ibu mengalami nyeri hebat pada perut?	☐	☐
+8	Apakah luka jahitan terasa sangat nyeri atau bernanah?	☐	☐
+9	Apakah payudara terasa bengkak dan nyeri?	☐	☐
+10	Apakah ibu merasa sedih berkepanjangan tanpa sebab?	☐	☐
+11	Apakah ibu merasa cemas berlebihan?	☐	☐
+12	Apakah ibu kehilangan minat dalam merawat bayi?	☐	☐
+
+B. Skrining Masalah Menyusui
+No	Pertanyaan	Ya (1)	Tidak (0)
+1	Apakah ibu merasa ASI yang keluar kurang?	☐	☐
+2	Apakah bayi sering menangis setelah menyusu?	☐	☐
+3	Apakah bayi tampak tidak puas setelah menyusu?	☐	☐
+4	Apakah ibu merasa nyeri saat menyusui?	☐	☐
+5	Apakah puting susu lecet atau luka?	☐	☐
+6	Apakah payudara terasa bengkak atau keras?	☐	☐
+7	Apakah bayi sulit melekat pada payudara?	☐	☐
+8	Apakah bayi menyusu kurang dari 8 kali sehari?	☐	☐
+9	Apakah bayi BAK kurang dari 6 kali sehari?	☐	☐
+10	Apakah berat badan bayi tidak naik?	☐	☐
+
+C. Skrining Kesiapan KB Pasca Persalinan
+No	Pertanyaan	Ya (1)	Tidak (0)
+1	Apakah ibu sudah lebih dari 6 minggu pasca persalinan?	☐	☐
+2	Apakah ibu sudah kembali menstruasi?	☐	☐
+3	Apakah ibu tidak menyusui secara eksklusif?	☐	☐
+4	Apakah frekuensi menyusui kurang dari 8 kali sehari?	☐	☐
+5	Apakah ibu memiliki riwayat hipertensi?	☐	☐
+6	Apakah ibu memiliki riwayat perdarahan?	☐	☐
+7	Apakah ibu merokok?	☐	☐
+8	Apakah ibu ingin menunda kehamilan lebih dari 2 tahun?	☐	☐
+9	Apakah ibu bersedia menggunakan alat kontrasepsi jangka panjang?	☐	☐
+10	Apakah ibu takut terhadap penggunaan alat/implan/alat dalam rahim?	☐	☐
+
+D. Interpretasi Skor Skrining
+Cara Penilaian:
+• Jawaban “Ya” = 1
+• Jawaban “Tidak” = 0
+• Total skor dijumlahkan
+Skor	Kategori	Rekomendasi
+0–3	Normal	Lanjutkan perawatan mandiri dan edukasi
+4–6	Risiko Ringan	Disarankan konsultasi dengan bidan
+≥7	Risiko Tinggi	Segera ke fasilitas kesehatan
+
+Catatan: Kuesioner skrining ini digunakan sebagai alat deteksi dini terhadap kondisi ibu nifas, masalah menyusui, serta kesiapan penggunaan KB pasca persalinan.

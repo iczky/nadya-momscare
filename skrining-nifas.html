@@ -41,23 +41,32 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-3 mb-2">
       <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
       </div>
-      <h1 class="font-heading text-xl font-bold text-text-primary">Skrining Masa Nifas</h1>
+      <div>
+        <h1 class="font-heading text-xl font-bold text-text-primary">Skrining Kondisi Nifas</h1>
+        <p class="text-xs text-text-secondary">12 pertanyaan</p>
+      </div>
     </div>
 
-    <form id="skriningForm" class="space-y-6">
+    <div class="bg-primary-light/50 rounded-xl p-4 mb-6">
+      <p class="text-sm text-text-secondary">
+        <strong>Petunjuk:</strong> Jawab setiap pertanyaan dengan memilih "Ya" atau "Tidak" sesuai kondisi Anda saat ini.
+      </p>
+    </div>
+
+    <form id="skriningForm" class="space-y-4">
       <!-- Question 1 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">1. Apakah perdarahan pasca persalinan Anda masih sangat banyak (lebih dari haid biasa)?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q1" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, perdarahannya banyak</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">1. Apakah ibu mengalami demam (>38°C)?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q1" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q1" value="0" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Tidak</span>
           </label>
@@ -65,18 +74,14 @@
       </div>
 
       <!-- Question 2 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">2. Apakah Anda mengalami demam di atas 38°C?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, disertai menggigil</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">2. Apakah ibu merasa lemas berlebihan?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q2" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, tanpa menggigil</span>
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q2" value="0" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Tidak</span>
           </label>
@@ -84,18 +89,14 @@
       </div>
 
       <!-- Question 3 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">3. Apakah perut terasa sangat nyeri meskipun sudah minum obat?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, sangat nyeri</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">3. Apakah ibu mengalami pusing atau sakit kepala berat?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q3" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Sedikit nyeri</span>
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q3" value="0" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Tidak</span>
           </label>
@@ -103,30 +104,135 @@
       </div>
 
       <!-- Question 4 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">4. Apakah luka jahitan terasa bengkak, merah, atau keluar nanah?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="2" class="w-5 h-5 accent-primary-dark">
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">4. Apakah ibu mengalami perdarahan banyak (ganti pembalut < 1 jam)?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q4" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak ada luka / luka baik-baik saja</span>
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 5 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">5. Apakah Anda merasakan benjolan di area vagina/perineum yang nyeri?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q5" value="2" class="w-5 h-5 accent-primary-dark">
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">5. Apakah darah nifas berbau tidak sedap?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q5" value="1" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
             <input type="radio" name="q5" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">6. Apakah keluar gumpalan darah besar?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q6" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q6" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">7. Apakah ibu mengalami nyeri hebat pada perut?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q7" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q7" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">8. Apakah luka jahitan terasa sangat nyeri atau bernanah?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q8" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q8" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">9. Apakah payudara terasa bengkak dan nyeri?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q9" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q9" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">10. Apakah ibu merasa sedih berkepanjangan tanpa sebab?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q10" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q10" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 11 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">11. Apakah ibu merasa cemas berlebihan?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q11" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q11" value="0" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 12 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">12. Apakah ibu kehilangan minat dalam merawat bayi?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q12" value="1" class="w-5 h-5 accent-primary-dark">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors has-[:checked]:border-primary-dark has-[:checked]:bg-primary-light/30">
+            <input type="radio" name="q12" value="0" class="w-5 h-5 accent-primary-dark">
             <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
@@ -137,19 +243,17 @@
       </button>
     </form>
 
-    <!-- Result Section (hidden by default) -->
+    <!-- Result Section -->
     <div id="resultSection" class="hidden space-y-4">
-      <div id="resultCard" class="bg-white rounded-xl p-5 border border-border/50 text-center">
-        <!-- Result will be injected here -->
+      <div id="resultCard" class="bg-white rounded-xl p-6 border border-border/50 text-center">
       </div>
       <div id="recommendationCard" class="bg-white rounded-xl p-5 border border-border/50">
-        <!-- Recommendation will be injected here -->
       </div>
-      <a href="hasil-skrining.html" class="block w-full py-4 bg-primary text-white font-semibold rounded-xl text-center transition-all duration-200 hover:bg-primary-dark cursor-pointer">
-        Simpan Hasil
-      </a>
-      <a href="konsultasi.html" class="block w-full py-4 bg-primary-light text-primary-dark font-semibold rounded-xl text-center transition-all duration-200 hover:bg-primary cursor-pointer">
+      <a href="konsultasi.html" class="block w-full py-4 bg-primary text-white font-semibold rounded-xl text-center transition-all duration-200 hover:bg-primary-dark cursor-pointer">
         Konsultasi dengan Bidan
+      </a>
+      <a href="skrining.html" class="block w-full py-4 bg-white text-text-primary font-semibold rounded-xl text-center border border-border transition-all duration-200 hover:bg-primary-light cursor-pointer">
+        Kembali ke Daftar Skrining
       </a>
     </div>
   </main>
@@ -159,7 +263,7 @@
       e.preventDefault();
 
       let totalScore = 0;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 12; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected) {
           totalScore += parseInt(selected.value);
@@ -169,36 +273,36 @@
       const resultCard = document.getElementById('resultCard');
       const recCard = document.getElementById('recommendationCard');
 
-      if (totalScore >= 6) {
+      if (totalScore >= 7) {
         resultCard.innerHTML = `
           <div class="w-16 h-16 bg-danger/20 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
           </div>
           <h3 class="font-heading text-xl font-bold text-red-600 mb-2">Risiko Tinggi</h3>
-          <p class="text-text-secondary">Skor: ${totalScore}/10</p>
+          <p class="text-text-secondary">Skor: ${totalScore}/12</p>
         `;
         resultCard.classList.add('border-danger/50');
         recCard.innerHTML = `
           <h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3>
           <div class="bg-danger/10 rounded-lg p-4 mb-4">
             <p class="text-sm text-red-600 font-medium">Segera ke Fasilitas Kesehatan!</p>
-            <p class="text-sm text-text-secondary mt-2">Anda menunjukkan tanda-tanda bahaya yang memerlukan penanganan segera. Segera hubungi bidan atau pergi ke rumah sakit.</p>
+            <p class="text-sm text-text-secondary mt-2">Anda menunjukkan tanda-tanda yang memerlukan penanganan medis segera. Segera hubungi bidan atau pergi ke rumah sakit.</p>
           </div>
           <p class="text-sm text-text-secondary mb-2">Kontak darurat:</p>
           <p class="font-bold text-red-600">0812-3456-7890</p>
         `;
-      } else if (totalScore >= 3) {
+      } else if (totalScore >= 4) {
         resultCard.innerHTML = `
           <div class="w-16 h-16 bg-warning/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-amber-600 mb-2">Perlu Konsultasi</h3>
-          <p class="text-text-secondary">Skor: ${totalScore}/10</p>
+          <h3 class="font-heading text-xl font-bold text-amber-600 mb-2">Risiko Ringan</h3>
+          <p class="text-text-secondary">Skor: ${totalScore}/12</p>
         `;
         resultCard.classList.add('border-warning');
         recCard.innerHTML = `
           <h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3>
-          <p class="text-sm text-text-secondary mb-4">Anda menunjukkan beberapa tanda yang perlu diwaspadai. Sebaiknya segera konsultasi dengan bidan untuk evaluasi lebih lanjut.</p>
+          <p class="text-sm text-text-secondary mb-4">Anda menunjukkan beberapa tanda yang perlu diwaspadai. Disarankan untuk segera konsultasi dengan bidan.</p>
           <a href="konsultasi.html" class="inline-flex items-center gap-2 text-primary-dark font-medium text-sm">
             Konsultasi Sekarang
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
@@ -209,13 +313,13 @@
           <div class="w-16 h-16 bg-success/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
-          <h3 class="font-heading text-xl font-bold text-green-600 mb-2">Kondisi Baik</h3>
-          <p class="text-text-secondary">Skor: ${totalScore}/10</p>
+          <h3 class="font-heading text-xl font-bold text-green-600 mb-2">Normal</h3>
+          <p class="text-text-secondary">Skor: ${totalScore}/12</p>
         `;
         resultCard.classList.add('border-success');
         recCard.innerHTML = `
           <h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3>
-          <p class="text-sm text-text-secondary mb-4">Kondisi Anda saat ini baik. Tetap jaga kebersihan, istirahat cukup, dan konsumsi makanan bergizi. Lakukan skrining ulang jika ada keluhan.</p>
+          <p class="text-sm text-text-secondary mb-4">Kondisi Anda saat ini dalam batas normal. Lanjutkan perawatan mandiri dan konsumsi makanan bergizi.</p>
           <a href="edukasi-nifas.html" class="inline-flex items-center gap-2 text-primary-dark font-medium text-sm">
             Pelajari Perawatan Masa Nifas
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>

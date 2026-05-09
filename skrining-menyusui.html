@@ -41,107 +41,186 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-3 mb-6">
+    <div class="flex items-center gap-3 mb-2">
       <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
       </div>
-      <h1 class="font-heading text-xl font-bold text-text-primary">Skrining Menyusui</h1>
+      <div>
+        <h1 class="font-heading text-xl font-bold text-text-primary">Skrining Masalah Menyusui</h1>
+        <p class="text-xs text-text-secondary">10 pertanyaan</p>
+      </div>
     </div>
 
-    <form id="skriningForm" class="space-y-6">
+    <div class="bg-secondary/30 rounded-xl p-4 mb-6">
+      <p class="text-sm text-text-secondary">
+        <strong>Petunjuk:</strong> Jawab setiap pertanyaan dengan memilih "Ya" atau "Tidak" sesuai kondisi Anda saat ini.
+      </p>
+    </div>
+
+    <form id="skriningForm" class="space-y-4">
       <!-- Question 1 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">1. Apakah bayi sudah dapat melekat dengan baik saat menyusu?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q1" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Belum, bayi sulit melekat</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">1. Apakah ibu merasa ASI yang keluar kurang?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q1" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q1" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Sudah, dengan baik</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q1" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 2 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">2. Apakah Anda mengalami nyeri puting saat menyusui?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, sangat sakit</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">2. Apakah bayi sering menangis setelah menyusu?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q2" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Sedikit nyeri</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q2" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak sama sekali</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q2" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 3 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">3. Apakah produksi ASI sudah memadai?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Belum ada / sangat sedikit</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">3. Apakah bayi tampak tidak puas setelah menyusu?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q3" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Kadang kurang</span>
-          </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q3" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Cukup / bayi kenyang</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q3" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 4 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">4. Apakah bayi menyusu minimal 8-12 kali sehari?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="0" class="w-5 h-5 accent-primary-dark">
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">4. Apakah ibu merasa nyeri saat menyusui?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-purple-600">
             <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q4" value="1" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Kurang dari itu</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q4" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
       <!-- Question 5 -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="font-medium text-text-primary mb-4">5. Apakah bayi tenang setelah menyusu?</p>
-        <div class="space-y-2">
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q5" value="0" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Ya, bayi tampak puas</span>
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">5. Apakah puting susu lecet atau luka?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q5" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
           </label>
-          <label class="flex items-center gap-3 p-3 rounded-lg border border-border cursor-pointer hover:bg-primary-light/30 transition-colors">
-            <input type="radio" name="q5" value="2" class="w-5 h-5 accent-primary-dark">
-            <span class="text-sm text-text-primary">Tidak, bayi masih gelisah</span>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q5" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
           </label>
         </div>
       </div>
 
-      <button type="submit" class="w-full py-4 bg-primary text-white font-semibold rounded-xl transition-all duration-200 hover:bg-primary-dark active:scale-[0.98] cursor-pointer">
+      <!-- Question 6 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">6. Apakah payudara terasa bengkak atau keras?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q6" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q6" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">7. Apakah bayi sulit melekat pada payudara?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q7" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q7" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">8. Apakah bayi menyusu kurang dari 8 kali sehari?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q8" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q8" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">9. Apakah bayi BAK kurang dari 6 kali sehari?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q9" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q9" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="bg-white rounded-xl p-4 border border-border/50">
+        <p class="font-medium text-text-primary mb-3">10. Apakah berat badan bayi tidak naik?</p>
+        <div class="flex gap-4">
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q10" value="1" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Ya</span>
+          </label>
+          <label class="flex items-center gap-2 flex-1 p-3 rounded-lg border border-border cursor-pointer hover:bg-secondary/30 transition-colors has-[:checked]:border-purple-600 has-[:checked]:bg-secondary/30">
+            <input type="radio" name="q10" value="0" class="w-5 h-5 accent-purple-600">
+            <span class="text-sm text-text-primary">Tidak</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-secondary text-purple-600 font-semibold rounded-xl transition-all duration-200 hover:bg-purple-200 active:scale-[0.98] cursor-pointer">
         Lihat Hasil Skrining
       </button>
     </form>
 
     <div id="resultSection" class="hidden space-y-4">
-      <div id="resultCard" class="bg-white rounded-xl p-5 border border-border/50 text-center"></div>
+      <div id="resultCard" class="bg-white rounded-xl p-6 border border-border/50 text-center"></div>
       <div id="recommendationCard" class="bg-white rounded-xl p-5 border border-border/50"></div>
-      <a href="konsultasi.html" class="block w-full py-4 bg-primary text-white font-semibold rounded-xl text-center transition-all duration-200 hover:bg-primary-dark cursor-pointer">
+      <a href="konsultasi.html" class="block w-full py-4 bg-secondary text-purple-600 font-semibold rounded-xl text-center transition-all duration-200 hover:bg-purple-200 cursor-pointer">
         Konsultasi dengan Bidan
+      </a>
+      <a href="skrining.html" class="block w-full py-4 bg-white text-text-primary font-semibold rounded-xl text-center border border-border transition-all duration-200 hover:bg-primary-light cursor-pointer">
+        Kembali ke Daftar Skrining
       </a>
     </div>
   </main>
@@ -150,7 +229,7 @@
     document.getElementById('skriningForm').addEventListener('submit', function(e) {
       e.preventDefault();
       let totalScore = 0;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected) totalScore += parseInt(selected.value);
       }
@@ -158,18 +237,18 @@
       const resultCard = document.getElementById('resultCard');
       const recCard = document.getElementById('recommendationCard');
 
-      if (totalScore >= 6) {
-        resultCard.innerHTML = `<div class="w-16 h-16 bg-danger/20 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><h3 class="font-heading text-xl font-bold text-red-600 mb-2">Butuh Bantuan</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
+      if (totalScore >= 7) {
+        resultCard.innerHTML = `<div class="w-16 h-16 bg-danger/20 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><h3 class="font-heading text-xl font-bold text-red-600 mb-2">Risiko Tinggi</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
         resultCard.classList.add('border-danger/50');
-        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><p class="text-sm text-text-secondary mb-4">Anda mengalami beberapa masalah menyusui yang perlu penanganan. Sebaiknya segera konsultasi dengan konselor laktasi.</p>`;
-      } else if (totalScore >= 3) {
-        resultCard.innerHTML = `<div class="w-16 h-16 bg-warning/30 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><h3 class="font-heading text-xl font-bold text-amber-600 mb-2">Perlu Perhatian</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
+        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><div class="bg-danger/10 rounded-lg p-4 mb-4"><p class="text-sm text-red-600 font-medium">Segera ke Fasilitas Kesehatan!</p><p class="text-sm text-text-secondary mt-2">Bayi menunjukkan tanda-tanda masalah menyusui yang perlu penanganan segera. Segera konsultasi dengan konselor laktasi.</p></div>`;
+      } else if (totalScore >= 4) {
+        resultCard.innerHTML = `<div class="w-16 h-16 bg-warning/30 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><h3 class="font-heading text-xl font-bold text-amber-600 mb-2">Risiko Ringan</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
         resultCard.classList.add('border-warning');
-        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><p class="text-sm text-text-secondary mb-4">Ada beberapa hal yang perlu diperhatikan. Coba perbaiki teknik menyusui atau konsultasikan jika belum membaik.</p>`;
+        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><p class="text-sm text-text-secondary mb-4">Ada beberapa masalah menyusui yang perlu diperhatikan. Disarankan konsultasi dengan bidan atau konselor laktasi.</p>`;
       } else {
-        resultCard.innerHTML = `<div class="w-16 h-16 bg-success/30 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="font-heading text-xl font-bold text-green-600 mb-2">Menyusui Lancar</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
+        resultCard.innerHTML = `<div class="w-16 h-16 bg-success/30 rounded-full flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="font-heading text-xl font-bold text-green-600 mb-2">Normal</h3><p class="text-text-secondary">Skor: ${totalScore}/10</p>`;
         resultCard.classList.add('border-success');
-        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><p class="text-sm text-text-secondary mb-4">Proses menyusui Anda berjalan lancar. Terus pertahankan dan jaga pola makan bergizi untuk mendukung produksi ASI.</p>`;
+        recCard.innerHTML = `<h3 class="font-heading font-bold text-text-primary mb-3">Rekomendasi</h3><p class="text-sm text-text-secondary mb-4">Proses menyusui berjalan lancar. Terus pertahankan dan jaga pola makan bergizi untuk mendukung produksi ASI.</p>`;
       }
 
       document.getElementById('skriningForm').classList.add('hidden');
