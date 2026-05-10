@@ -28,9 +28,151 @@
     h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(236, 72, 153, 0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    /* Animation Classes */
+    .animate-fade-in-up { animation: fadeInUp 500ms ease-out forwards; }
+    .animate-fade-in-left { animation: fadeInLeft 500ms ease-out forwards; }
+    .animate-scale-in { animation: scaleIn 300ms ease-out forwards; }
+    .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    /* Initially hide for animation */
+    .animate-on-scroll {
+      opacity: 0;
+    }
+    .animate-on-scroll.visible {
+      animation: fadeInUp 500ms ease-out forwards;
+    }
+
+    /* Card hover effects */
+    .edu-card {
+      transition: all 0.3s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(131, 24, 67, 0.15);
+    }
+    .edu-card:hover .card-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .edu-card:hover .card-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Tab pill animation */
+    .tab-pill {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .tab-pill::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+    .tab-pill:hover::before {
+      left: 100%;
+    }
+    .tab-pill.active {
+      background: linear-gradient(135deg, #EC4899, #F8BBD9);
+      color: white;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+
+    /* Progress bar */
+    .progress-ring {
+      transition: stroke-dashoffset 0.5s ease;
+    }
+
+    /* Category icon animation */
+    .category-icon {
+      transition: all 0.3s ease;
+    }
+    .category-card:hover .category-icon {
+      transform: scale(1.2) rotate(-5deg);
+    }
+
+    /* Section divider animation */
+    .section-line {
+      background: linear-gradient(90deg, #F8BBD9, transparent);
+      height: 2px;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+    }
+    .tooltip::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: #831843;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+    .tooltip:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-background text-text-primary pb-24">
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
     <div class="flex items-center justify-between max-w-6xl mx-auto">
       <a href="index.html" class="flex items-center gap-2">
@@ -39,115 +181,419 @@
         </div>
         <span class="font-heading font-bold text-lg text-text-primary">MomsCare</span>
       </a>
-      <a href="profil.html" class="w-9 h-9 bg-primary-light rounded-full flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+      <div class="flex items-center gap-3">
+        <!-- Reading Progress Indicator -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-success/20 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <span class="text-xs text-green-600 font-medium">5 Artikel</span>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <h1 class="font-heading text-2xl font-bold text-text-primary mb-2">Materi Edukasi</h1>
-    <p class="text-text-secondary text-sm mb-6">Pelajari berbagai topik kesehatan ibu nifas</p>
-
-    <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4">
-      <a href="edukasi-nifas.html" class="flex-shrink-0 px-4 py-2 rounded-full bg-primary text-white text-sm font-medium">Masa Nifas</a>
-      <a href="edukasi-menyusui.html" class="flex-shrink-0 px-4 py-2 rounded-full bg-white border border-border text-text-secondary text-sm font-medium">Menyusui</a>
-      <a href="edukasi-kb.html" class="flex-shrink-0 px-4 py-2 rounded-full bg-white border border-border text-text-secondary text-sm font-medium">KB Pasca</a>
-      <a href="edukasi-tanda-bahaya.html" class="flex-shrink-0 px-4 py-2 rounded-full bg-white border border-border text-text-secondary text-sm font-medium">Tanda Bahaya</a>
-    </div>
-
-    <!-- Masa Nifas Preview -->
-    <section class="mb-8">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-        <span class="w-2 h-2 bg-primary-dark rounded-full"></span>Masa Nifas
-      </h2>
-      <div class="space-y-3">
-        <a href="edukasi-nifas.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Pengertian Masa Nifas</h3>
-          <p class="text-xs text-text-secondary">Mengenal apa itu masa nifas dan proses pemulihannya</p>
-        </a>
-        <a href="edukasi-nifas.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Tahapan Nifas</h3>
-          <p class="text-xs text-text-secondary">Early, Middle, dan Late Postpartum</p>
-        </a>
-        <a href="edukasi-nifas.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Perawatan Masa Nifas</h3>
-          <p class="text-xs text-text-secondary">Tips perawatan diri pascapersalinan</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Menyusui Preview -->
-    <section class="mb-8">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-        <span class="w-2 h-2 bg-purple-500 rounded-full"></span>Menyusui
-      </h2>
-      <div class="space-y-3">
-        <a href="edukasi-menyusui.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Teknik Menyusui yang Benar</h3>
-          <p class="text-xs text-text-secondary">Cara memposisikan dan melekatkan bayi dengan baik</p>
-        </a>
-        <a href="edukasi-menyusui.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">ASI Eksklusif</h3>
-          <p class="text-xs text-text-secondary">Panduan lengkap menyusui eksklusif 6 bulan</p>
-        </a>
-        <a href="edukasi-menyusui.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Mengatasi Puting Lecet</h3>
-          <p class="text-xs text-text-secondary">Pencegahan dan penanganan puting sakit</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- KB Preview -->
-    <section class="mb-8">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-        <span class="w-2 h-2 bg-green-500 rounded-full"></span>KB Pasca Persalinan
-      </h2>
-      <div class="space-y-3">
-        <a href="edukasi-kb.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Jenis-Jenis KB Pasca Persalinan</h3>
-          <p class="text-xs text-text-secondary">Pilihan kontrasepsi untuk ibu menyusui</p>
-        </a>
-        <a href="edukasi-kb.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">IUD: Kelebihan dan Cara Kerja</h3>
-          <p class="text-xs text-text-secondary">Kontrasepsi jangka panjang yang aman</p>
-        </a>
-        <a href="edukasi-kb.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Metode MAL</h3>
-          <p class="text-xs text-text-secondary">Metode Amenorrhea Laktasi sebagai kontrasepsi alami</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Tanda Bahaya Preview -->
-    <section class="mb-8">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
-        <span class="w-2 h-2 bg-red-500 rounded-full"></span>Tanda Bahaya
-      </h2>
-      <div class="bg-danger/10 rounded-xl p-4 border border-danger/20 mb-4">
-        <div class="flex items-center gap-2 mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-          <span class="font-medium text-red-600 text-sm">Penting untuk Diketahui</span>
+    <!-- Hero Section -->
+    <section class="mb-8 relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+      <div class="relative bg-gradient-to-br from-primary-light via-surface to-secondary/30 rounded-2xl p-6 md:p-8">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 bg-primary-dark rounded-2xl flex items-center justify-center flex-shrink-0 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </div>
+          <div class="flex-1">
+            <h1 class="font-heading text-2xl md:text-3xl font-bold text-text-primary mb-2">
+              Materi Edukasi
+            </h1>
+            <p class="text-text-secondary text-sm md:text-base leading-relaxed">
+              Pelajari kesehatan ibu nifas melalui materi interaktif. Klik topik untuk memulai perjalanan belajar Anda.
+            </p>
+          </div>
         </div>
-        <p class="text-xs text-text-secondary">Segera cari bantuan medis jika mengalami tanda-tanda bahaya berikut.</p>
+        <!-- Decorative Elements -->
+        <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-secondary/50 rounded-full blur-2xl -z-10"></div>
       </div>
-      <div class="space-y-3">
-        <a href="edukasi-tanda-bahaya.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Perdarahan Banyak (Hemoragi)</h3>
-          <p class="text-xs text-text-secondary">Kapan harus segera ke dokter?</p>
+    </section>
+
+    <!-- Category Tabs -->
+    <section class="mb-8">
+      <div class="flex gap-2 overflow-x-auto hide-scrollbar pb-4 -mx-4 px-4">
+        <button class="tab-pill active flex-shrink-0 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-medium cursor-pointer" data-category="nifas">
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            Masa Nifas
+          </span>
+        </button>
+        <button class="tab-pill flex-shrink-0 px-5 py-2.5 rounded-full bg-white border border-border text-text-secondary text-sm font-medium cursor-pointer" data-category="menyusui">
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Menyusui
+          </span>
+        </button>
+        <button class="tab-pill flex-shrink-0 px-5 py-2.5 rounded-full bg-white border border-border text-text-secondary text-sm font-medium cursor-pointer" data-category="kb">
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            KB Pasca
+          </span>
+        </button>
+        <button class="tab-pill flex-shrink-0 px-5 py-2.5 rounded-full bg-white border border-border text-text-secondary text-sm font-medium cursor-pointer" data-category="bahaya">
+          <span class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            Tanda Bahaya
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Nifas Section -->
+    <section id="section-nifas" class="edu-section mb-10">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center category-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <div>
+          <h2 class="font-heading text-xl font-bold text-text-primary">Masa Nifas</h2>
+          <p class="text-text-secondary text-sm">3 artikel tersedia</p>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <!-- Card 1 -->
+        <a href="edukasi-nifas.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-heading font-semibold text-text-primary">Pengertian Masa Nifas</h3>
+                <span class="px-2 py-0.5 bg-success/20 text-green-600 text-xs font-medium rounded-full">Populer</span>
+              </div>
+              <p class="text-text-secondary text-sm mb-3">Mengenal apa itu masa nifas dan proses pemulihannya setelah persalinan.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  5 menit baca
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Beginner
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
         </a>
-        <a href="edukasi-tanda-bahaya.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Demam Tinggi Pasca Persalinan</h3>
-          <p class="text-xs text-text-secondary">Tanda infeksi yang perlu diwaspadai</p>
+        <!-- Card 2 -->
+        <a href="edukasi-nifas.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-secondary/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M19 8h-3"/><path d="M12 12v9"/><path d="M16 16h.01"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Tahapan Nifas</h3>
+              <p class="text-text-secondary text-sm mb-3">Early, Middle, dan Late Postpartum - memahami setiap fase pemulihan.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  7 menit baca
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                  Intermediate
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
         </a>
-        <a href="edukasi-tanda-bahaya.html" class="block bg-white rounded-xl p-4 border border-border/50 transition-all duration-200 hover:shadow-md cursor-pointer">
-          <h3 class="font-medium text-text-primary mb-1">Depresi Postpartum</h3>
-          <p class="text-xs text-text-secondary">Kenali gejala dan cara mengatasinya</p>
+        <!-- Card 3 -->
+        <a href="edukasi-nifas.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/20 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-accent/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Perawatan Masa Nifas</h3>
+              <p class="text-text-secondary text-sm mb-3">Tips perawatan diri pascapersalinan untuk pemulihan optimal.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  6 menit baca
+                </span>
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Beginner
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
         </a>
+      </div>
+    </section>
+
+    <!-- Menyusui Section -->
+    <section id="section-menyusui" class="edu-section mb-10 hidden">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center category-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <div>
+          <h2 class="font-heading text-xl font-bold text-text-primary">Menyusui</h2>
+          <p class="text-text-secondary text-sm">4 artikel tersedia</p>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <a href="edukasi-menyusui.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100/30 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-secondary/40 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-heading font-semibold text-text-primary">Teknik Menyusui yang Benar</h3>
+                <span class="px-2 py-0.5 bg-primary-light text-primary-dark text-xs font-medium rounded-full">Wajib Baca</span>
+              </div>
+              <p class="text-text-secondary text-sm mb-3">Cara memposisikan dan melekatkan bayi dengan baik untuk menyusui optimal.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  8 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-menyusui.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-success/20 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">ASI Eksklusif</h3>
+              <p class="text-text-secondary text-sm mb-3">Panduan lengkap menyusui eksklusif 6 bulan untuk bayi sehat.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  10 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-menyusui.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-danger/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-danger/20 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Mengatasi Puting Lecet</h3>
+              <p class="text-text-secondary text-sm mb-3">Pencegahan dan penanganan puting sakit saat menyusui.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  6 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- KB Section -->
+    <section id="section-kb" class="edu-section mb-10 hidden">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center category-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </div>
+        <div>
+          <h2 class="font-heading text-xl font-bold text-text-primary">KB Pasca Persalinan</h2>
+          <p class="text-text-secondary text-sm">5 artikel tersedia</p>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <a href="edukasi-kb.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-success/20 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Ringkasan Program KB</h3>
+              <p class="text-text-secondary text-sm mb-3">Definisi, manfaat, dan pilihan metode kontrasepsi untuk ibu menyusui.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  5 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-kb.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">IUD: Kelebihan dan Cara Kerja</h3>
+              <p class="text-text-secondary text-sm mb-3">Kontrasepsi jangka panjang yang aman untuk ibu menyusui.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  7 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-kb.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-secondary/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Metode MAL</h3>
+              <p class="text-text-secondary text-sm mb-3">Metode Amenorrhea Laktasi sebagai kontrasepsi alami untuk ibu menyusui.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  4 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Tanda Bahaya Section -->
+    <section id="section-bahaya" class="edu-section mb-10 hidden">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 bg-danger/20 rounded-xl flex items-center justify-center category-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <div>
+          <h2 class="font-heading text-xl font-bold text-text-primary">Tanda Bahaya</h2>
+          <p class="text-text-secondary text-sm">5 artikel tersedia</p>
+        </div>
+      </div>
+      <!-- Warning Banner -->
+      <div class="bg-gradient-to-r from-danger/10 via-danger/5 to-surface rounded-2xl p-5 border border-danger/30 mb-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-danger/20 rounded-xl flex items-center justify-center flex-shrink-0 animate-pulse-glow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-red-600 mb-1">Penting untuk Diketahui</h3>
+            <p class="text-text-secondary text-sm">Segera cari bantuan medis jika mengalami tanda-tanda bahaya berikut. Jangan tunda!</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <a href="edukasi-tanda-bahaya.html" class="edu-card group bg-white rounded-2xl p-5 border border-danger/30 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-danger/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-danger/20 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-heading font-semibold text-text-primary">Perdarahan Banyak (Hemoragi)</h3>
+                <span class="px-2 py-0.5 bg-danger/20 text-red-600 text-xs font-medium rounded-full">Kritis</span>
+              </div>
+              <p class="text-text-secondary text-sm mb-3">Kapan harus segera ke dokter? Kenali tanda-tanda perdarahan berbahaya.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  6 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-tanda-bahaya.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-warning/10 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-warning/30 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Demam Tinggi Pasca Persalinan</h3>
+              <p class="text-text-secondary text-sm mb-3">Tanda infeksi yang perlu diwaspadai setelah persalinan.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  5 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+        <a href="edukasi-tanda-bahaya.html" class="edu-card group bg-white rounded-2xl p-5 border border-border/50 cursor-pointer relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-100/20 to-transparent rounded-bl-full"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-secondary/40 rounded-xl flex items-center justify-center flex-shrink-0 card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-heading font-semibold text-text-primary mb-2">Depresi Postpartum</h3>
+              <p class="text-text-secondary text-sm mb-3">Kenali gejala dan cara mengatasinya untuk kesehatan mental ibu.</p>
+              <div class="flex items-center gap-4 text-xs text-text-secondary">
+                <span class="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  8 menit baca
+                </span>
+              </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-text-secondary card-arrow transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="mt-10 bg-gradient-to-r from-primary-light to-surface-alt rounded-2xl p-6">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 bg-primary-dark rounded-xl flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-text-primary">Progress Belajar</h3>
+          <p class="text-text-secondary text-sm">Lacak perjalanan belajar Anda</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="flex-1">
+          <div class="flex justify-between text-sm mb-2">
+            <span class="text-text-secondary">Artikel dibaca</span>
+            <span class="font-medium text-primary-dark">5 / 17</span>
+          </div>
+          <div class="h-3 bg-white rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-primary to-primary-dark rounded-full transition-all duration-500" style="width: 29%"></div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Bottom Navigation -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
     <div class="flex items-center justify-around">
       <a href="index.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
@@ -166,11 +612,73 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg>
         <span class="text-xs font-medium text-text-secondary">Skrining</span>
       </a>
-      <a href="profil.html" class="flex flex-col items-center gap-1 p-2 min-w-[64px]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span class="text-xs font-medium text-text-secondary">Profil</span>
-      </a>
     </div>
   </nav>
+
+  <script>
+    // Tab switching functionality
+    const tabPills = document.querySelectorAll('.tab-pill');
+    const sections = document.querySelectorAll('.edu-section');
+
+    tabPills.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active from all tabs
+        tabPills.forEach(t => t.classList.remove('active'));
+        // Add active to clicked tab
+        this.classList.add('active');
+
+        // Hide all sections
+        sections.forEach(s => s.classList.add('hidden'));
+
+        // Show selected section
+        const category = this.dataset.category;
+        const targetSection = document.getElementById('section-' + category);
+        if (targetSection) {
+          targetSection.classList.remove('hidden');
+          // Animate cards in
+          const cards = targetSection.querySelectorAll('.edu-card');
+          cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.transition = 'all 0.4s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, index * 100);
+          });
+        }
+      });
+    });
+
+    // Scroll animation for sections
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.edu-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Card entrance animations
+    const cards = document.querySelectorAll('.edu-card');
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        card.style.transition = 'all 0.4s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+  </script>
 </body>
 </html>
