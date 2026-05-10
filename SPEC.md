@@ -2,7 +2,9 @@
 
 ## 1. Concept & Vision
 
-MomsCare adalah platform telekonseling kesehatan ibu nifas berbasis web yang dirancang sederhana namun fungsional. Memberikan kemudahan bagi ibu nifas untuk berkonsultasi dengan bidan, mendapatkan edukasi kesehatan, dan melakukan skrining mandiri dari rumah. Desainnya hangat, menenangkan, dan mudah digunakan - mencerminkan kepedulian dan dukungan untuk ibu baru.
+MomsCare adalah platform informasi kesehatan ibu nifas berbasis web yang dirancang sederhana namun fungsional. Memberikan kemudahan bagi ibu nifas untuk mendapatkan edukasi kesehatan dan melakukan skrining mandiri dari rumah. Desainnya hangat, menenangkan, dan mudah digunakan - mencerminkan kepedulian dan dukungan untuk ibu baru.
+
+**Catatan:** Fitur konsultasi telah dihapus. Pengguna disarankan untuk langsung pergi ke Fasilitas Kesehatan terdekat jika membutuhkan konsultasi lebih lanjut.
 
 ---
 
@@ -89,18 +91,12 @@ Soft, nurturing healthcare aesthetic dengan sentuhan hangat dan ramah. Menggunak
 │   ├── Hero Section
 │   ├── Features Overview
 │   ├── Materi Edukasi Preview
-│   └── CTA Registration
-│
-├── Login/Register (/login, /register)
+│   └── CTA Skrining
 │
 ├── Dashboard (/dashboard)
 │   ├── Summary Cards
 │   ├── Quick Actions
 │   └── Recent Activity
-│
-├── Telekonseling (/chat)
-│   ├── Chat List
-│   └── Chat Room
 │
 ├── Edukasi (/education)
 │   ├── Category List
@@ -108,12 +104,11 @@ Soft, nurturing healthcare aesthetic dengan sentuhan hangat dan ramah. Menggunak
 │
 ├── Skrining (/screening)
 │   ├── Form Skrining
-│   └── Result Display
+│   └── Result Display (with message to visit nearest faskes)
 │
 └── Profil (/profile)
     ├── Data Diri
-    ├── Data Bayi
-    └── Riwayat Konsultasi
+    └── Data Bayi
 ```
 
 ### Responsive Strategy
@@ -148,9 +143,9 @@ Soft, nurturing healthcare aesthetic dengan sentuhan hangat dan ramah. Menggunak
 - Jumlah konsultasi bulan ini
 
 **Quick Actions:**
-- "Mulai Konsultasi" button
 - "Skrining Sekarang" button
 - "Baca Materi" shortcut
+- "Lihat Riwayat" shortcut
 
 ### 4.3 Telekonseling (Chat)
 
@@ -222,28 +217,14 @@ Soft, nurturing healthcare aesthetic dengan sentuhan hangat dan ramah. Menggunak
    - Suhu tubuh
    - Kondisi luka jahitan
 
-**Output Rekomendasi:**
+**Skrining Output Rekomendasi:**
 | Score Range | Result | Action |
 |-------------|--------|--------|
 | 0-8 | Aman | Edukasi rutin |
-| 9-12 | Perlu Konsultasi | Rekomendasi konsultasi bidan |
+| 9-12 | Perlu Konsultasi | Pesan untuk kunjungi Fasilitas Kesehatan terdekat |
 | 13+ | Segera ke Fasilitas Kesehatan | Tampilkan kontak darurat |
 
 ### 4.6 Profil Pengguna
-
-**Data Diri:**
-- Nama, usia, tanggal persalinan
-- Edit functionality
-
-**Data Bayi:**
-- Nama bayi, jenis kelamin, berat badan lahir, tanggal lahir
-- Tanggal automatically calculated
-
-**Riwayat Konsultasi:**
-- List chronologically
-- Filter by date range
-
-### 4.7 Kontak Darurat
 
 - Nomor hotline bidan
 - Alamat fasilitas kesehatan terdekat (mock data)
@@ -419,16 +400,14 @@ Semua materi dalam Bahasa Indonesia dengan bahasa yang ramah dan mudah dipahami.
 
 **Included:**
 - Landing page dengan informasi fitur
-- Autentikasi (mock, localStorage-based)
 - Dashboard dengan summary
-- Chat interface (UI only, mock responses)
+- Chat interface (UI only, mock responses) - removed
 - Halaman edukasi dengan materi lengkap
 - Form skrining dengan hasil
 - Profil dengan data diri dan bayi
 
 **Deferred (Future):**
 - Backend API integration
-- Real-time chat dengan bidan actual
 - Push notifications
 - Multi-language support
 - Dark mode

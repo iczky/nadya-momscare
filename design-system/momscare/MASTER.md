@@ -7,8 +7,18 @@
 ---
 
 **Project:** MomsCare
-**Generated:** 2026-05-09 14:19:04
-**Category:** Senior Care/Elderly
+**Generated:** 2026-05-10
+**Category:** Healthcare - Postpartum Mother Care
+
+---
+
+## Key Features
+- Edukasi kesehatan (Masa Nifas, Menyusui, KB, Tanda Bahaya)
+- Skrining mandiri untuk deteksi dini
+- Profil pengguna dengan data diri dan bayi
+- Informasi kontak darurat
+
+**Note:** Fitur konsultasi telah dihapus. Pengguna disarankan ke Fasilitas Kesehatan terdekat.
 
 ---
 

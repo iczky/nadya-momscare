@@ -223,12 +223,12 @@
       </div>
 
       <div class="bg-warning/20 rounded-xl p-4 text-sm">
-        <p class="font-medium text-amber-600 mb-2">Catatan Penting</p>
-        <p class="text-text-secondary">Rekomendasi ini bersifat umum. Untuk pilihan KB yang tepat, konsultasikan dengan bidan atau dokter spesialis.</p>
+        <p class="font-medium text-amber-600 mb-2">Langkah Selanjutnya</p>
+        <p class="text-text-secondary">Untuk konsultasi lebih lanjut, silakan datang ke Fasilitas Kesehatan terdekat seperti Puskesmas, Klinik, atau Rumah Sakit di daerah Anda.</p>
       </div>
 
-      <a href="konsultasi.html" class="block w-full py-4 bg-success text-green-600 font-semibold rounded-xl text-center transition-all duration-200 hover:bg-green-200 cursor-pointer">
-        Konsultasi dengan Bidan
+      <a href="skrining.html" class="block w-full py-4 bg-white text-text-primary font-semibold rounded-xl text-center border border-border transition-all duration-200 hover:bg-primary-light cursor-pointer">
+        Kembali ke Daftar Skrining
       </a>
     </div>
   </main>
@@ -282,8 +282,10 @@
       if (recommendations.length === 0) {
         recCard.innerHTML = `
           <h4 class="font-heading font-bold text-text-primary mb-3">Konsultasi Diperlukan</h4>
-          <p class="text-sm text-text-secondary mb-4">Berdasarkan kondisi Anda, diperlukan konsultasi langsung dengan bidan untuk menentukan metode KB yang paling tepat.</p>
-          <p class="text-sm text-text-secondary">Beberapa kondisi seperti riwayat hipertensi, perdarahan, atau preferensi metode memerlukan pertimbangan khusus.</p>
+          <p class="text-sm text-text-secondary mb-4">Berdasarkan kondisi Anda, diperlukan konsultasi langsung dengan tenaga kesehatan untuk menentukan metode KB yang paling tepat.</p>
+          <div class="bg-warning/20 rounded-lg p-4">
+            <p class="text-sm text-text-secondary">Silakan datang ke Fasilitas Kesehatan terdekat seperti Puskesmas, Klinik, atau Rumah Sakit di daerah Anda.</p>
+          </div>
         `;
       } else {
         let recHTML = '<h4 class="font-heading font-bold text-text-primary mb-3">Metode KB yang Disarankan</h4><div class="space-y-4">';
@@ -310,7 +312,7 @@
       <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
       <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-text-secondary">Edukasi</span></a>
       <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-primary-dark">Skrining</span></a>
-      <a href="konsultasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="text-xs text-text-secondary">Konsultasi</span></a>
+      <a href="profil.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="text-xs text-text-secondary">Profil</span></a>
     </div>
   </nav>
 </body>
