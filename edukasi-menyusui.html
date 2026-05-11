@@ -26,9 +26,134 @@
   <style>
     * { font-family: 'Poppins', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Animation Classes */
+    .animate-fade-in-up { animation: fadeInUp 600ms ease-out forwards; }
+    .animate-fade-in-left { animation: fadeInLeft 500ms ease-out forwards; }
+    .animate-scale-in { animation: scaleIn 400ms ease-out forwards; }
+    .animate-slide-in-right { animation: slideInRight 500ms ease-out forwards; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card styles */
+    .edu-card {
+      transition: all 0.3s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(131, 24, 67, 0.12);
+    }
+
+    /* Image card */
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .image-card img {
+      transition: transform 0.5s ease;
+    }
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+    .image-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(131, 24, 67, 0.3), transparent);
+      pointer-events: none;
+    }
+
+    /* Tip card */
+    .tip-card {
+      background: linear-gradient(135deg, #FFF5F8 0%, #FFFFFF 100%);
+      border-left: 4px solid #EC4899;
+      transition: all 0.3s ease;
+    }
+    .tip-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(236, 72, 153, 0.15);
+    }
+
+    /* Icon badge */
+    .icon-badge {
+      transition: all 0.3s ease;
+    }
+    .icon-badge:hover {
+      transform: scale(1.1);
+    }
+
+    /* Position card */
+    .position-card {
+      background: linear-gradient(135deg, var(--tw-gradient-stops));
+      transition: all 0.3s ease;
+    }
+    .position-card:hover {
+      transform: scale(1.02);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Mobile touch improvements */
+    @media (hover: none) {
+      .edu-card:active {
+        transform: scale(0.98);
+      }
+    }
   </style>
 </head>
 <body class="bg-background text-text-primary pb-24">
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
     <div class="flex items-center justify-between max-w-6xl mx-auto">
       <a href="index.html" class="flex items-center gap-2">
@@ -44,137 +169,415 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-2 mb-4">
-      <a href="edukasi.html" class="text-text-secondary">
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 mb-4 reveal">
+      <a href="edukasi.html" class="text-text-secondary hover:text-primary-dark transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </a>
       <span class="text-text-secondary text-sm">Edukasi</span>
     </div>
 
-    <div class="flex items-center gap-3 mb-6">
-      <div class="w-12 h-12 bg-secondary/50 rounded-xl flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-      </div>
-      <h1 class="font-heading text-2xl font-bold text-text-primary">Menyusui</h1>
-    </div>
-
-    <!-- Article 1 -->
-    <section class="mb-8">
-      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Teknik Menyusui yang Benar</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
-        <p>Teknik menyusui yang benar sangat penting untuk memastikan bayi mendapatkan ASI yang cukup dan mencegah masalah seperti puting lecet.</p>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Posisi Menyusui</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Cradle Hold:</strong> Bayi menghadap dada ibu, kepala di lekukan siku</li>
-            <li><strong>Football Hold:</strong> Bayi diposisikan di samping tubuh ibu, kaki menghadap belakang</li>
-            <li><strong>Side-Lying:</strong> Ibu dan bayi sama-sama berbaring menghadap satu sama lain</li>
-            <li><strong>Laid-back:</strong> Ibu berbaring santai dengan bayi di atas dada</li>
-          </ul>
+    <!-- Hero Section -->
+    <section class="mb-8 reveal">
+      <div class="relative bg-gradient-to-br from-primary-light via-surface to-secondary/20 rounded-2xl overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-secondary/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full blur-2xl"></div>
+        <div class="relative p-6 md:p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center animate-float shadow-lg shadow-pink-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <div>
+              <h1 class="font-heading text-2xl md:text-3xl font-bold text-text-primary">Menyusui</h1>
+              <p class="text-text-secondary text-sm mt-1">Panduan lengkap untuk ibu menyusui</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Pelekatan yang Benar</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Bayi membuka mulut lebar dengan areola (bagian gelap) masuk ke mulut</li>
-            <li>Dagu bayi menyentuh payudara</li>
-            <li>Bibir bayi melekuk ke luar (tidak masuk)</li>
-            <li>Tidak terasa sakit saat bayi menghisap</li>
-            <li>Bagian atas areola terlihat lebih banyak di atas</li>
+      </div>
+    </section>
+
+    <!-- Image Card -->
+    <section class="mb-8 reveal">
+      <div class="image-card rounded-2xl shadow-lg">
+        <img src="images/menyusui.webp" alt="Teknik Menyusui yang Benar" class="w-full h-48 md:h-64 object-cover">
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="px-3 py-1 bg-purple-600 text-white text-xs font-medium rounded-full shadow-lg">Panduan Menyusui</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article 1: Teknik Menyusui -->
+    <section class="mb-10 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </span>
+        Teknik Menyusui yang Benar
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="w-14 h-14 bg-gradient-to-br from-pink-100 to-pink-50 rounded-2xl flex items-center justify-center flex-shrink-0 icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <p class="text-text-secondary leading-relaxed">Teknik menyusui yang benar sangat penting untuk memastikan bayi mendapatkan ASI yang cukup dan mencegah masalah seperti puting lecet.</p>
+        </div>
+
+        <!-- Position Cards -->
+        <div class="mb-6">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+              <span class="text-xs font-bold text-green-600">1</span>
+            </span>
+            Posisi Menyusui
+          </h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="position-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
+              <div class="w-10 h-10 bg-green-200 rounded-lg flex items-center justify-center mb-2">
+                <span class="text-xl">🤱</span>
+              </div>
+              <p class="font-medium text-green-700">Cradle Hold</p>
+              <p class="text-xs text-green-600 mt-1">Bayi menghadap dada, kepala di lekukan siku</p>
+            </div>
+            <div class="position-card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-100">
+              <div class="w-10 h-10 bg-blue-200 rounded-lg flex items-center justify-center mb-2">
+                <span class="text-xl">🏈</span>
+              </div>
+              <p class="font-medium text-blue-700">Football Hold</p>
+              <p class="text-xs text-blue-600 mt-1">Bayi diposisikan di samping tubuh ibu</p>
+            </div>
+            <div class="position-card bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-4 border border-purple-100">
+              <div class="w-10 h-10 bg-purple-200 rounded-lg flex items-center justify-center mb-2">
+                <span class="text-xl">😴</span>
+              </div>
+              <p class="font-medium text-purple-700">Side-Lying</p>
+              <p class="text-xs text-purple-600 mt-1">Ibu dan bayi berbaring menghadap</p>
+            </div>
+            <div class="position-card bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+              <div class="w-10 h-10 bg-amber-200 rounded-lg flex items-center justify-center mb-2">
+                <span class="text-xl">🛋️</span>
+              </div>
+              <p class="font-medium text-amber-700">Laid-back</p>
+              <p class="text-xs text-amber-600 mt-1">Ibu berbaring santai dengan bayi di dada</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pelekatan -->
+        <div class="bg-gradient-to-r from-primary-light/30 to-transparent rounded-xl p-4">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center">
+              <span class="text-xs font-bold text-pink-600">2</span>
+            </span>
+            Pelekatan yang Benar
+          </h3>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-3 p-2 bg-white rounded-lg">
+              <div class="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-sm text-text-secondary">Bayi membuka mulut lebar dengan areola masuk ke mulut</span>
+            </li>
+            <li class="flex items-start gap-3 p-2 bg-white rounded-lg">
+              <div class="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-sm text-text-secondary">Dagu bayi menyentuh payudara</span>
+            </li>
+            <li class="flex items-start gap-3 p-2 bg-white rounded-lg">
+              <div class="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-sm text-text-secondary">Bibir bayi melekuk ke luar (tidak masuk)</span>
+            </li>
+            <li class="flex items-start gap-3 p-2 bg-white rounded-lg">
+              <div class="w-6 h-6 bg-success rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span class="text-sm text-text-secondary">Tidak terasa sakit saat bayi menghisap</span>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Article 2 -->
-    <section class="mb-8">
-      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">ASI Eksklusif</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
-        <p>ASI eksklusif berarti memberikan hanya ASI saja tanpa air putih, makanan padat, atau formula selama 6 bulan pertama kehidupan bayi.</p>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Manfaat ASI Eksklusif</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Memberikan antibodi untuk melindungi bayi dari infeksi</li>
-            <li>Mendukung pertumbuhan dan perkembangan otak optimal</li>
-            <li>Melindungi bayi dari alergi dan penyakit kronis</li>
-            <li>Mempererat ikatan antara ibu dan bayi</li>
-            <li>Ekonomi dan praktis</li>
-          </ul>
+    <!-- Article 2: ASI Eksklusif -->
+    <section class="mb-10 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-success/30 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+        </span>
+        ASI Eksklusif
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <div class="flex items-start gap-4 mb-5">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-50 rounded-2xl flex items-center justify-center flex-shrink-0 icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <p class="text-text-secondary leading-relaxed">ASI eksklusif berarti memberikan hanya ASI saja tanpa air putih, makanan padat, atau formula selama <strong class="text-green-600">6 bulan pertama</strong> kehidupan bayi.</p>
         </div>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Tips Memulai ASI Eksklusif</h3>
-          <ul class="list-decimal list-inside space-y-2">
-            <li>Inisiasi Menyusu Dini (IMD) dalam 1 jam pertama setelah lahir</li>
-            <li>Susui bayi on-demand (saat bayi minta)</li>
-            <li>Pastikan bayi mengosongkan satu payudara sebelum pindah ke breasts lain</li>
-            <li>Jangan gunakan dot atau empeng sebelum menyusui lancar</li>
+
+        <!-- Benefits -->
+        <div class="mb-5">
+          <h3 class="font-medium text-text-primary mb-3">Manfaat ASI Eksklusif</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-green-50 rounded-xl p-3 text-center">
+              <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              </div>
+              <p class="text-sm font-medium text-green-700">Antibodi</p>
+              <p class="text-xs text-green-600">Perlindungan dari infeksi</p>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-3 text-center">
+              <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+              </div>
+              <p class="text-sm font-medium text-blue-700">Otak</p>
+              <p class="text-xs text-blue-600">Pertumbuhan optimal</p>
+            </div>
+            <div class="bg-purple-50 rounded-xl p-3 text-center">
+              <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </div>
+              <p class="text-sm font-medium text-purple-700">Ikatan</p>
+              <p class="text-xs text-purple-600">Bonding ibu-bayi</p>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-3 text-center">
+              <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <p class="text-sm font-medium text-amber-700">Praktis</p>
+              <p class="text-xs text-amber-600">Ekonomi & mudah</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="bg-gradient-to-r from-green-50 to-transparent rounded-xl p-4">
+          <h3 class="font-medium text-text-primary mb-3">Tips Memulai ASI Eksklusif</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</span>
+              <span class="text-sm text-text-secondary">Inisiasi Menyusu Dini (IMD) dalam 1 jam pertama setelah lahir</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">2</span>
+              <span class="text-sm text-text-secondary">Susui bayi on-demand (saat bayi minta)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">3</span>
+              <span class="text-sm text-text-secondary">Pastikan bayi mengosongkan satu payudara sebelum pindah</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">4</span>
+              <span class="text-sm text-text-secondary">Jangan gunakan dot atau empeng sebelum menyusui lancar</span>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Article 3 -->
-    <section class="mb-8">
-      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Mengatasi Puting Lecet</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
-        <p>Puting lecet adalah masalah umum yang sering dialami ibu menyusui. Penyebab utamanya adalah pelekatan yang kurang tepat.</p>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Pencegahan</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Pastikan pelekatan bayi benar (dagu menyentuh payudara)</li>
-            <li>Ganti posisi menyusui agar tekanan tersebar merata</li>
-            <li>Jangan menarik putting dari mulut bayi secara paksa</li>
-            <li>Oleskan kolostrum atau ASI di putting setelah menyusui</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Penanganan</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Kompres dingin untuk meredakan nyeri</li>
-            <li>Oleskan ASI atau lotion lanolin khusus ibu menyusui</li>
-            <li>Biarkan putting terkena udara sebentar setelah menyusui</li>
-            <li>Jika sangat sakit, pompa ASI dan berikan dengan sendok sementara</li>
-            <li>Konsultasi dengan konselor laktasi jika tidak membaik</li>
-          </ul>
+    <!-- Article 3: Puting Lecet -->
+    <section class="mb-10 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-danger/30 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </span>
+        Mengatasi Puting Lecet
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <p class="text-text-secondary mb-5">Puting lecet adalah masalah umum yang sering dialami ibu menyusui. Penyebab utamanya adalah <strong class="text-red-500">pelekatan yang kurang tepat</strong>.</p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Pencegahan -->
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 border border-amber-100">
+            <h3 class="font-medium text-amber-700 mb-3 flex items-center gap-2">
+              <span class="w-6 h-6 bg-amber-200 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+              </span>
+              Pencegahan
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
+                Pastikan pelekatan bayi benar
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
+                Ganti posisi menyusui agar tekanan merata
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
+                Jangan tarik putting secara paksa
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
+                Oleskan kolostrum setelah menyusui
+              </li>
+            </ul>
+          </div>
+
+          <!-- Penanganan -->
+          <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-4 border border-red-100">
+            <h3 class="font-medium text-red-600 mb-3 flex items-center gap-2">
+              <span class="w-6 h-6 bg-red-200 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              </span>
+              Penanganan
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
+                Kompres dingin untuk meredakan nyeri
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
+                Oleskan ASI atau lotion lanolin
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
+                Biarkan putting kena udara
+              </li>
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <span class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
+                Pompa ASI jika sangat sakit
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Article 4 -->
-    <section class="mb-8">
-      <h2 class="font-heading text-xl font-bold text-text-primary mb-4">Memerah dan Menyimpan ASI</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50 space-y-4 text-sm text-text-secondary leading-relaxed">
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Cara Memerah ASI</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Cuci tangan sebelum memerah</li>
-            <li>Pijat lembut payudara dengan gerakan melingkar</li>
-            <li>Letakkan ibu jari di atas dan jari lain di bawah areola</li>
-            <li>Tekan ke arah dinding dada, lalu remas lembut</li>
-            <li>Ulangi dengan posisi jari berbeda</li>
-          </ul>
+    <!-- Article 4: Memerah ASI -->
+    <section class="mb-10 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-secondary/50 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M19 8h-3"/><path d="M12 12v9"/><path d="M16 16h.01"/></svg>
+        </span>
+        Memerah dan Menyimpan ASI
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Cara Memerah -->
+          <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-5 border border-purple-100">
+            <h3 class="font-medium text-purple-700 mb-4 flex items-center gap-2">
+              <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M10 20H4v-6"/><path d="M20 4 10 14"/><path d="M4 20l10-10"/></svg>
+              </span>
+              Cara Memerah
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 p-3 bg-white/80 rounded-lg">
+                <span class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">1</span>
+                <span class="text-sm text-text-secondary">Cuci tangan sebelum memerah</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 bg-white/80 rounded-lg">
+                <span class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">2</span>
+                <span class="text-sm text-text-secondary">Pijat lembut dengan gerakan melingkar</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 bg-white/80 rounded-lg">
+                <span class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">3</span>
+                <span class="text-sm text-text-secondary">Letakkan ibu jari di atas, jari lain di bawah</span>
+              </li>
+              <li class="flex items-start gap-3 p-3 bg-white/80 rounded-lg">
+                <span class="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold">4</span>
+                <span class="text-sm text-text-secondary">Tekan ke dinding dada, remas lembut</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Penyimpanan -->
+          <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-5 border border-blue-100">
+            <h3 class="font-medium text-blue-700 mb-4 flex items-center gap-2">
+              <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 8.5c.5-1 .5-2.5 0-3.5s-1.5-1.5-2.5-1.5H16c-1 0-2 .5-2.5 1.5s0 2.5 1 3.5"/><path d="M6 18.5c-.5 1-1 2.5 0 3.5s1.5 1.5 2.5 1.5h1c1 0 2-.5 2.5-1.5s0-2.5-1-3.5"/><path d="M8 13l-5 5"/><path d="M16 11l5-5"/></svg>
+              </span>
+              Penyimpanan
+            </h3>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-white/80 rounded-lg">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <span class="text-lg">🌡️</span>
+                </div>
+                <div>
+                  <p class="font-medium text-blue-700">Suhu Ruangan</p>
+                  <p class="text-sm text-blue-600">4-6 jam</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-white/80 rounded-lg">
+                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                  <span class="text-lg">🧊</span>
+                </div>
+                <div>
+                  <p class="font-medium text-cyan-700">Kulkas</p>
+                  <p class="text-sm text-cyan-600">24-48 jam</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-white/80 rounded-lg">
+                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                  <span class="text-lg">❄️</span>
+                </div>
+                <div>
+                  <p class="font-medium text-indigo-700">Freezer</p>
+                  <p class="text-sm text-indigo-600">3-6 bulan</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <h3 class="font-medium text-text-primary mb-2">Penyimpanan ASI</h3>
-          <ul class="list-disc list-inside space-y-2">
-            <li>Suhu ruangan: 4-6 jam</li>
-            <li>Kulkas: 24-48 jam</li>
-            <li>Freezer: 3-6 bulan</li>
-            <li>Jangan bekukan ulang ASI yang sudah dicairkan</li>
-            <li>Panaskan dengan cara rendam air hangat, bukan microwave</li>
-          </ul>
+
+        <!-- Warning -->
+        <div class="mt-5 bg-warning/20 rounded-xl p-4 border border-warning/30">
+          <div class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <p class="text-sm text-text-secondary"><strong class="text-amber-700">Penting:</strong> Jangan bekukan ulang ASI yang sudah dicairkan. Panaskan dengan rendam air hangat, bukan microwave.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Bottom Navigation -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
     <div class="flex items-center justify-around">
-      <a href="index.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs text-text-secondary">Beranda</span></a>
-      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
-      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-primary-dark">Edukasi</span></a>
-      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-text-secondary">Skrining</span></a>
-      <a href="profil.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="text-xs text-text-secondary">Profil</span></a>
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="text-xs text-text-secondary">Beranda</span>
+      </a>
+      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <span class="text-xs text-text-secondary">Tentang</span>
+      </a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <span class="text-xs text-primary-dark">Edukasi</span>
+      </a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg>
+        <span class="text-xs text-text-secondary">Skrining</span>
+      </a>
+      <a href="profil.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="text-xs text-text-secondary">Profil</span>
+      </a>
     </div>
   </nav>
+
+  <script>
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    // Trigger initial animations
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    }, 100);
+  </script>
 </body>
 </html>

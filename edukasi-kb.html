@@ -26,9 +26,134 @@
   <style>
     * { font-family: 'Poppins', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Nunito', sans-serif; }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Animation Classes */
+    .animate-fade-in-up { animation: fadeInUp 600ms ease-out forwards; }
+    .animate-fade-in-left { animation: fadeInLeft 500ms ease-out forwards; }
+    .animate-scale-in { animation: scaleIn 400ms ease-out forwards; }
+    .animate-slide-in-right { animation: slideInRight 500ms ease-out forwards; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+    .animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card styles */
+    .edu-card {
+      transition: all 0.3s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(131, 24, 67, 0.12);
+    }
+
+    /* Image card */
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .image-card img {
+      transition: transform 0.5s ease;
+    }
+    .image-card:hover img {
+      transform: scale(1.05);
+    }
+    .image-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(131, 24, 67, 0.3), transparent);
+      pointer-events: none;
+    }
+
+    /* Method card */
+    .method-card {
+      background: linear-gradient(135deg, #FFF5F8 0%, #FFFFFF 100%);
+      transition: all 0.3s ease;
+    }
+    .method-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(236, 72, 153, 0.15);
+    }
+
+    /* Icon badge */
+    .icon-badge {
+      transition: all 0.3s ease;
+    }
+    .icon-badge:hover {
+      transform: scale(1.1);
+    }
+
+    /* Service chip */
+    .service-chip {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .service-chip:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Mobile touch improvements */
+    @media (hover: none) {
+      .edu-card:active {
+        transform: scale(0.98);
+      }
+    }
   </style>
 </head>
 <body class="bg-background text-text-primary pb-24">
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border px-4 py-3">
     <div class="flex items-center justify-between max-w-6xl mx-auto">
       <a href="index.html" class="flex items-center gap-2">
@@ -44,130 +169,296 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-6">
-    <div class="flex items-center gap-2 mb-4">
-      <a href="edukasi.html" class="text-text-secondary">
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 mb-4 reveal">
+      <a href="edukasi.html" class="text-text-secondary hover:text-primary-dark transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </a>
       <span class="text-text-secondary text-sm">Edukasi</span>
     </div>
 
-    <div class="flex items-center gap-3 mb-6">
-      <div class="w-12 h-12 bg-success/30 rounded-xl flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+    <!-- Hero Section -->
+    <section class="mb-8 reveal">
+      <div class="relative bg-gradient-to-br from-primary-light via-surface to-success/20 rounded-2xl overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-success/20 rounded-full blur-2xl"></div>
+        <div class="relative p-6 md:p-8">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center animate-float shadow-lg shadow-green-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            </div>
+            <div>
+              <h1 class="font-heading text-2xl md:text-3xl font-bold text-text-primary">Ringkasan Program KB</h1>
+              <p class="text-text-secondary text-sm mt-1">Rencanakan keluarga Anda dengan bijak</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1 class="font-heading text-2xl font-bold text-text-primary">Ringkasan Program KB</h1>
-    </div>
+    </section>
+
+    <!-- Image Card -->
+    <section class="mb-8 reveal">
+      <div class="image-card rounded-2xl shadow-lg">
+        <img src="images/kb.webp" alt="Program KB Pasca Persalinan" class="w-full h-48 md:h-64 object-cover">
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <span class="px-3 py-1 bg-green-600 text-white text-xs font-medium rounded-full shadow-lg">Metode Kontrasepsi</span>
+        </div>
+      </div>
+    </section>
 
     <!-- Definisi KB -->
-    <section class="mb-6">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-3">Definisi KB</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="text-sm text-text-secondary leading-relaxed">Upaya mengatur kelahiran, jarak kehamilan, dan usia ideal melahirkan untuk mewujudkan keluarga berkualitas serta memenuhi hak reproduksi.</p>
+    <section class="mb-8 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </span>
+        Definisi KB
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <div class="flex items-start gap-4">
+          <div class="w-14 h-14 bg-gradient-to-br from-pink-100 to-pink-50 rounded-2xl flex items-center justify-center flex-shrink-0 icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <p class="text-text-secondary leading-relaxed text-base">Upaya mengatur kelahiran, jarak kehamilan, dan usia ideal melahirkan untuk mewujudkan keluarga berkualitas serta memenuhi hak reproduksi.</p>
+        </div>
       </div>
     </section>
 
     <!-- Manfaat Utama -->
-    <section class="mb-6">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-3">Manfaat Utama</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <ul class="space-y-3">
-          <li class="flex items-start gap-3">
-            <div class="w-6 h-6 bg-success/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <section class="mb-8 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-success/30 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        Manfaat Utama
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-transparent rounded-xl group hover:from-green-100 transition-all">
+            <div class="w-10 h-10 bg-success rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/></svg>
             </div>
-            <span class="text-sm text-text-secondary">Menurunkan angka kematian ibu dan bayi</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="w-6 h-6 bg-success/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <h3 class="font-medium text-text-primary">Menurunkan Angka Kematian</h3>
+              <p class="text-sm text-text-secondary mt-1">Mengurangi risiko kematian ibu dan bayi saat persalinan</p>
             </div>
-            <span class="text-sm text-text-secondary">Mencegah kehamilan yang tidak direncanakan</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <div class="w-6 h-6 bg-success/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-transparent rounded-xl group hover:from-purple-100 transition-all">
+            <div class="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <span class="text-sm text-text-secondary">Menjaga kesehatan reproduksi pasangan</span>
-          </li>
-        </ul>
+            <div>
+              <h3 class="font-medium text-text-primary">Mencegah Kehamilan Tidak Direncanakan</h3>
+              <p class="text-sm text-text-secondary mt-1">Memastikan setiap kehamilan adalah kehamilan yang diinginkan</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-amber-50 to-transparent rounded-xl group hover:from-amber-100 transition-all">
+            <div class="w-10 h-10 bg-accent/50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h3 class="font-medium text-text-primary">Menjaga Kesehatan Reproduksi</h3>
+              <p class="text-sm text-text-secondary mt-1">Memastikan organ reproduksi pasangan tetap sehat</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Pilihan Metode Kontrasepsi -->
-    <section class="mb-6">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-3">Pilihan Metode Kontrasepsi</h2>
+    <section class="mb-8 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-secondary/50 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </span>
+        Pilihan Metode Kontrasepsi
+      </h2>
+      <div class="grid gap-4">
+        <!-- Metode Jangka Panjang -->
+        <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-400"></div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-text-primary">Metode Jangka Panjang</h3>
+              <p class="text-xs text-text-secondary">Efektif 3-10 tahun</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-blue-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">🔹</span>
+              <p class="font-medium text-blue-700">IUD</p>
+              <p class="text-xs text-blue-500">5-10 tahun</p>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">💉</span>
+              <p class="font-medium text-blue-700">Implan</p>
+              <p class="text-xs text-blue-500">3 tahun</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Metode Jangka Panjang -->
-      <div class="bg-white rounded-xl p-5 border border-border/50 mb-3">
-        <h3 class="font-medium text-text-primary mb-2">Metode Jangka Panjang</h3>
-        <ul class="space-y-2 text-sm text-text-secondary">
-          <li><strong>IUD</strong> (5-10 tahun)</li>
-          <li><strong>Implan</strong> (3 tahun)</li>
-        </ul>
-      </div>
+        <!-- Metode Permanen -->
+        <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-400"></div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-text-primary">Metode Permanen</h3>
+              <p class="text-xs text-text-secondary">Solusi jangka panjang</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-purple-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">♀️</span>
+              <p class="font-medium text-purple-700">Tubektomi</p>
+              <p class="text-xs text-purple-500">Wanita</p>
+            </div>
+            <div class="bg-purple-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">♂️</span>
+              <p class="font-medium text-purple-700">Vasektomi</p>
+              <p class="text-xs text-purple-500">Pria</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Metode Permanen -->
-      <div class="bg-white rounded-xl p-5 border border-border/50 mb-3">
-        <h3 class="font-medium text-text-primary mb-2">Metode Permanen</h3>
-        <ul class="space-y-2 text-sm text-text-secondary">
-          <li><strong>Tubektomi</strong> (wanita)</li>
-          <li><strong>Vasektomi</strong> (pria)</li>
-        </ul>
-      </div>
+        <!-- Metode Jangka Pendek -->
+        <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-green-500 to-green-400"></div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M19 8h-3"/><path d="M12 12v9"/><path d="M16 16h.01"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-text-primary">Metode Jangka Pendek</h3>
+              <p class="text-xs text-text-secondary">Fleksibel dan dapat diubah</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-green-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">💉</span>
+              <p class="font-medium text-green-700">Suntik</p>
+            </div>
+            <div class="bg-green-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">💊</span>
+              <p class="font-medium text-green-700">Pil KB</p>
+            </div>
+            <div class="bg-green-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">🛡️</span>
+              <p class="font-medium text-green-700">Kondom</p>
+            </div>
+          </div>
+        </div>
 
-      <!-- Metode Jangka Pendek -->
-      <div class="bg-white rounded-xl p-5 border border-border/50 mb-3">
-        <h3 class="font-medium text-text-primary mb-2">Metode Jangka Pendek</h3>
-        <ul class="space-y-2 text-sm text-text-secondary">
-          <li><strong>Suntik</strong></li>
-          <li><strong>Pil KB</strong></li>
-          <li><strong>Kondom</strong></li>
-        </ul>
-      </div>
-
-      <!-- Metode Alamiah -->
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <h3 class="font-medium text-text-primary mb-2">Metode Alamiah</h3>
-        <ul class="space-y-2 text-sm text-text-secondary">
-          <li><strong>Pemberian ASI eksklusif (MAL)</strong></li>
-          <li><strong>Hitung masa subur</strong></li>
-        </ul>
+        <!-- Metode Alamiah -->
+        <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-500 to-amber-400"></div>
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-heading font-semibold text-text-primary">Metode Alamiah</h3>
+              <p class="text-xs text-text-secondary">Tanpa alat bantu medis</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-amber-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">🤱</span>
+              <p class="font-medium text-amber-700">ASI Eksklusif (MAL)</p>
+              <p class="text-xs text-amber-500">Metode Amenorea Laktasi</p>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-3 text-center">
+              <span class="text-2xl mb-1 block">📅</span>
+              <p class="font-medium text-amber-700">Hitung Masa Subur</p>
+              <p class="text-xs text-amber-500">Pemantauan kesuburan</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Layanan Kesehatan -->
-    <section class="mb-6">
-      <h2 class="font-heading text-lg font-bold text-text-primary mb-3">Layanan Kesehatan</h2>
-      <div class="bg-white rounded-xl p-5 border border-border/50">
-        <p class="text-sm text-text-secondary leading-relaxed mb-3">Masyarakat bisa mendapatkan layanan di:</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1.5 bg-primary-light text-primary-dark text-sm rounded-full">Puskesmas</span>
-          <span class="px-3 py-1.5 bg-primary-light text-primary-dark text-sm rounded-full">Klinik</span>
-          <span class="px-3 py-1.5 bg-primary-light text-primary-dark text-sm rounded-full">Praktik Mandiri Bidan/Dokter</span>
-          <span class="px-3 py-1.5 bg-primary-light text-primary-dark text-sm rounded-full">Rumah Sakit</span>
+    <section class="mb-8 reveal">
+      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        Layanan Kesehatan
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <p class="text-text-secondary mb-4">Masyarakat bisa mendapatkan layanan KB di:</p>
+        <div class="grid grid-cols-2 gap-3">
+          <span class="service-chip px-4 py-3 bg-primary-light text-primary-dark text-sm font-medium rounded-xl text-center">Puskesmas</span>
+          <span class="service-chip px-4 py-3 bg-secondary/50 text-purple-700 text-sm font-medium rounded-xl text-center">Klinik</span>
+          <span class="service-chip px-4 py-3 bg-green-50 text-green-700 text-sm font-medium rounded-xl text-center">Praktik Bidan/Dokter</span>
+          <span class="service-chip px-4 py-3 bg-amber-50 text-amber-700 text-sm font-medium rounded-xl text-center">Rumah Sakit</span>
         </div>
       </div>
     </section>
 
     <!-- Penting -->
-    <section class="mb-6">
-      <div class="bg-warning/20 rounded-xl p-4 border border-warning/30">
-        <div class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          <p class="text-sm text-text-secondary leading-relaxed"><strong class="text-amber-700">Penting:</strong> Konsultasikan pilihan Anda dengan tenaga kesehatan untuk memastikan kecocokan medis dan memahami efek sampingnya.</p>
+    <section class="mb-8 reveal">
+      <div class="bg-gradient-to-r from-warning/30 to-warning/10 rounded-2xl p-5 border border-warning/30">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0 animate-pulse-soft">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <div>
+            <p class="font-heading font-bold text-amber-700 mb-2">Penting!</p>
+            <p class="text-text-secondary leading-relaxed">Konsultasikan pilihan Anda dengan tenaga kesehatan untuk memastikan kecocokan medis dan memahami efek sampingnya.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Bottom Navigation -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border px-2 py-2 md:hidden">
     <div class="flex items-center justify-around">
-      <a href="index.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="text-xs text-text-secondary">Beranda</span></a>
-      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span class="text-xs text-text-secondary">Tentang</span></a>
-      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg><span class="text-xs text-primary-dark">Edukasi</span></a>
-      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg><span class="text-xs text-text-secondary">Skrining</span></a>
-      <a href="profil.html" class="flex flex-col items-center gap-1 p-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="text-xs text-text-secondary">Profil</span></a>
+      <a href="index.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="text-xs text-text-secondary">Beranda</span>
+      </a>
+      <a href="tentang.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <span class="text-xs text-text-secondary">Tentang</span>
+      </a>
+      <a href="edukasi.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-primary-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <span class="text-xs text-primary-dark">Edukasi</span>
+      </a>
+      <a href="skrining.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M20.39 18.36A5.46 5.46 0 0 0 17.9 15.5a5.44 5.44 0 0 0-5.44-5.44A5.43 5.43 0 0 0 7 15.5a5.44 5.44 0 0 0 5.44 5.44"/></svg>
+        <span class="text-xs text-text-secondary">Skrining</span>
+      </a>
+      <a href="profil.html" class="flex flex-col items-center gap-1 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="text-xs text-text-secondary">Profil</span>
+      </a>
     </div>
   </nav>
+
+  <script>
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealElements.forEach(el => observer.observe(el));
+
+    // Trigger initial animations
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+    }, 100);
+  </script>
 </body>
 </html>
