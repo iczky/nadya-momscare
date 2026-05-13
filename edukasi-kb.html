@@ -135,7 +135,7 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       align-items: center;
       justify-content: center;
       padding: 1rem;
@@ -145,19 +145,24 @@
     }
     .lightbox-content {
       position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .lightbox-content img {
       max-width: 100%;
-      max-height: 85vh;
+      max-height: 100%;
+      width: auto;
+      height: auto;
       object-fit: contain;
       border-radius: 0.5rem;
     }
     .lightbox-close {
-      position: absolute;
-      top: -0.5rem;
-      right: -0.5rem;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
       width: 2.5rem;
       height: 2.5rem;
       background: white;
@@ -168,7 +173,8 @@
       cursor: pointer;
       font-size: 1.25rem;
       color: #831843;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 101;
     }
     .lightbox-close:hover {
       background: #F8BBD9;
@@ -252,7 +258,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
             </div>
             <div>
-              <h1 class="font-heading text-2xl md:text-3xl font-bold text-text-primary">Ringkasan Program KB</h1>
+              <h1 id="pengertian-kb" class="font-heading text-2xl md:text-3xl font-bold text-text-primary">Pengertian KB</h1>
               <p class="text-text-secondary text-sm mt-1">Rencanakan keluarga Anda dengan bijak</p>
             </div>
           </div>
@@ -335,26 +341,26 @@
 
     <!-- Pilihan Metode Kontrasepsi -->
     <section class="mb-8 reveal">
-      <h2 class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+      <h2 id="jenis-metode" class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
         <span class="w-8 h-8 bg-secondary/50 rounded-lg flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
         </span>
         Pilihan Metode Kontrasepsi
       </h2>
       <div class="grid gap-4">
-        <!-- Metode Jangka Panjang -->
+        <!-- Metode Jangka Panjang (Merged with Permanen) -->
         <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-blue-400"></div>
+          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-400"></div>
           <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+            <div class="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
               <h3 class="font-heading font-semibold text-text-primary">Metode Jangka Panjang</h3>
-              <p class="text-xs text-text-secondary">Efektif 3-10 tahun</p>
+              <p class="text-xs text-text-secondary">Efektif 3-10 tahun atau permanen</p>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div class="bg-blue-50 rounded-xl p-3 text-center">
               <span class="text-2xl mb-1 block">🔹</span>
               <p class="font-medium text-blue-700">IUD</p>
@@ -365,31 +371,15 @@
               <p class="font-medium text-blue-700">Implan</p>
               <p class="text-xs text-blue-500">3 tahun</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Metode Permanen -->
-        <div class="method-card edu-card rounded-2xl p-5 border border-border/50 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-500 to-purple-400"></div>
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div>
-              <h3 class="font-heading font-semibold text-text-primary">Metode Permanen</h3>
-              <p class="text-xs text-text-secondary">Solusi jangka panjang</p>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
             <div class="bg-purple-50 rounded-xl p-3 text-center">
               <span class="text-2xl mb-1 block">♀️</span>
               <p class="font-medium text-purple-700">Tubektomi</p>
-              <p class="text-xs text-purple-500">Wanita</p>
+              <p class="text-xs text-purple-500">Permanen</p>
             </div>
             <div class="bg-purple-50 rounded-xl p-3 text-center">
               <span class="text-2xl mb-1 block">♂️</span>
               <p class="font-medium text-purple-700">Vasektomi</p>
-              <p class="text-xs text-purple-500">Pria</p>
+              <p class="text-xs text-purple-500">Permanen</p>
             </div>
           </div>
         </div>
@@ -479,6 +469,139 @@
           <div>
             <p class="font-heading font-bold text-amber-700 mb-2">Penting!</p>
             <p class="text-text-secondary leading-relaxed">Konsultasikan pilihan Anda dengan tenaga kesehatan untuk memastikan kecocokan medis dan memahami efek sampingnya.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Efek Samping KB -->
+    <section class="mb-8 reveal">
+      <h2 id="efek-samping" class="font-heading text-xl font-bold text-text-primary mb-4 flex items-center gap-2">
+        <span class="w-8 h-8 bg-danger/30 rounded-lg flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </span>
+        Efek Samping KB
+      </h2>
+      <div class="edu-card bg-white rounded-2xl p-6 border border-border/50">
+        <!-- Pil KB -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-primary-light rounded-lg flex items-center justify-center">
+              <span class="text-sm">💊</span>
+            </span>
+            Pil KB (Kombinasi & Progestin)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Mual</span>
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Sakit kepala</span>
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Perubahan suasana hati</span>
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Peningkatan berat badan</span>
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Gangguan menstruasi</span>
+          </div>
+        </div>
+
+        <!-- Suntik KB -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">💉</span>
+            </span>
+            Suntik KB (DMPA & Kombinasi)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full">Gangguan menstruasi</span>
+            <span class="px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full">Amenore</span>
+            <span class="px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full">Spotting</span>
+            <span class="px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full">Kenaikan berat badan</span>
+            <span class="px-3 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full">Sakit kepala</span>
+          </div>
+        </div>
+
+        <!-- Implan -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">🔹</span>
+            </span>
+            Implan
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-full">Perdarahan tidak teratur</span>
+            <span class="px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-full">Jerawat</span>
+            <span class="px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-full">Sakit kepala</span>
+            <span class="px-3 py-1.5 bg-blue-50 text-blue-700 text-sm rounded-full">Perubahan berat badan</span>
+          </div>
+        </div>
+
+        <!-- IUD -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">🔸</span>
+            </span>
+            IUD (AKDR)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-green-50 text-green-700 text-sm rounded-full">Nyeri saat pemasangan</span>
+            <span class="px-3 py-1.5 bg-green-50 text-green-700 text-sm rounded-full">Kram perut</span>
+            <span class="px-3 py-1.5 bg-green-50 text-green-700 text-sm rounded-full">Perdarahan menstruasi lebih banyak</span>
+          </div>
+          <p class="text-xs text-text-secondary mt-2 italic">* Terutama pada penggunaan IUD tembaga</p>
+        </div>
+
+        <!-- Kondom -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">🛡️</span>
+            </span>
+            Kondom
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-amber-50 text-amber-700 text-sm rounded-full">Iritasi</span>
+            <span class="px-3 py-1.5 bg-amber-50 text-amber-700 text-sm rounded-full">Alergi lateks</span>
+          </div>
+        </div>
+
+        <!-- Metode Kalender -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">📅</span>
+            </span>
+            Metode Kalender (Alami)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-orange-50 text-orange-700 text-sm rounded-full">Risiko kehamilan lebih tinggi</span>
+          </div>
+          <p class="text-xs text-text-secondary mt-2 italic">* Apabila terjadi kesalahan dalam menentukan masa subur</p>
+        </div>
+
+        <!-- Tubektomi -->
+        <div class="mb-6 pb-6 border-b border-border/30">
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">♀️</span>
+            </span>
+            Tubektomi (Wanita)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Nyeri setelah tindakan</span>
+            <span class="px-3 py-1.5 bg-pink-50 text-pink-700 text-sm rounded-full">Risiko infeksi pasca operasi</span>
+          </div>
+        </div>
+
+        <!-- Vasektomi -->
+        <div>
+          <h3 class="font-medium text-text-primary mb-3 flex items-center gap-2">
+            <span class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+              <span class="text-sm">♂️</span>
+            </span>
+            Vasektomi (Pria)
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-700 text-sm rounded-full">Nyeri setelah tindakan</span>
+            <span class="px-3 py-1.5 bg-indigo-50 text-indigo-700 text-sm rounded-full">Risiko infeksi</span>
           </div>
         </div>
       </div>
